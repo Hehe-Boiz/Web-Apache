@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Favicon -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./assets/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./assets/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./assets/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./assets/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./assets/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./assets/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./assets/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./assets/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./assets/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./assets/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./assets/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#ffffff" />
+
+        <!-- Embed fonts -->
+        <link rel="stylesheet" href="assets/fonts/stylesheet.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Reset CSS -->
+        <link rel="stylesheet" href="assets/css/reset.css" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/GioiThieu.css" />
+
+        <title>Hướng dẫn Apache</title>
+    </head>
+    <body>
+        <header>
+            <div class="content">
+                <nav class="navbar">
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="GioiThieu.html">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="ChucNang.html">Chức năng</a>
+                        </li>
+                        <li>
+                            <a href="HuongDan.html">Hướng dẫn</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <div class="content">
+                <h1 class="title">Giới thiệu</h1>
+                <ul class="list">
+                    <li>
+                        <a href="">Web Server là gì ?</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="">Web Server hoạt động như thế nào</a>
+                            </li>
+                            <li>
+                                <a href=""></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">Apache là gì</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href=""></a>
+                            </li>
+                            <li>
+                                <a href=""></a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 class="sub-title">Web Server là gì</h2>
+                <p>
+                    Web server là máy chủ cài đặt các chương trình phục vụ các
+                    ứng dụng web.Nó lưu trữ các tệp tài nguyên của trang web như
+                    HTML, CSS, JavaScript, hình ảnh và video,... Webserver có
+                    khả năng tiếp nhận request từ các trình duyệt web và gửi
+                    phản hồi đến client thông qua giao thức HTTP hoặc các giao
+                    thức khác. Có nhiều web server khác nhau như: Apache, Nginx,
+                    IIS, … Web server thông dụng nhất hiện nay:
+                </p>
+                <figure>
+                    <img
+                        src="assets/img/websever.png"
+                        alt="Các Web Server thông dụng"
+                    />
+                    <figcaption>
+                        <i>Độ phổ biến của các Web Server vào năm 2017</i>
+                    </figcaption>
+                </figure>
+                <h2 class="sub-title">Web server hoạt động như thế nào</h2>
+                <img
+                    src="assets/img/wshoatdong.webp"
+                    alt="Cách web server hoạt động"
+                />
+                <p>
+                    Khi một người dùng nhập địa chỉ URL vào trình duyệt, trình
+                    duyệt sẽ gửi một yêu cầu HTTP tới web server. Web server
+                    nhận yêu cầu, tìm kiếm tài nguyên được yêu cầu và gửi lại
+                    phản hồi chứa tài nguyên đó tới trình duyệt. Trình duyệt sau
+                    đó sẽ hiển thị trang web cho người dùng.
+                </p>
+                <p>
+                    Bất cứ khi nào bạn xem một trang web trên internet, có nghĩa
+                    là bạn đang yêu cầu trang đó từ một web server. Khi bạn nhập
+                    URL trên trình duyệt của mình (ví dụ:
+                    https://github.com/Hehe-Boiz) nó sẽ tiến hành các bước sau
+                    để gửi lại phản hồi cho bạn.
+                </p>
+                <h3>1.Trình duyệt phân giải tên miền thành địa chỉ IP</h3>
+                <p>
+                    Trình duyệt của bạn sẽ cần phải xác định địa chỉ IP nào mà
+                    tên miền github.com/Hehe-Boiz trỏ vào. Để làm việc đó trình
+                    duyệt sẽ thục hiện các bước:
+                </p>
+                <ul class="steps">
+                    <li>
+                        <b>Trình duyệt kiểm tra bộ nhớ cache nội bộ:</b> Trước
+                        tiên, trình duyệt kiểm tra xem liệu địa chỉ IP của tên
+                        miền đã được lưu trong bộ nhớ cache của nó hay chưa.
+                    </li>
+                    <li>
+                        <b>Kiểm tra bộ nhớ cache hệ điều hành:</b> Nếu nó không
+                        tìm thấy, nó sẽ hỏi hệ điều hành. Hệ điều hành có thể đã
+                        lưu trữ địa chỉ IP này trong bộ nhớ cache của mình.
+                    </li>
+                    <li>
+                        <b>Yêu cầu đến máy chủ DNS:</b> Nếu cả 2 đều không, yêu
+                        cầu sẽ được gửi tới máy chủ DNS. Máy chủ DNS sẽ tìm kiếm
+                        và trả về địa chỉ IP tương ứng với tên miền.
+                    </li>
+                    <li>
+                        <b>Quá trình phân giải DNS:</b> Nếu máy chủ DNS không có
+                        thông tin, nó sẽ liên hệ với các máy chủ DNS khác (những
+                        máy chủ DNS cấp cao hơn) để lấy địa chỉ IP.
+                    </li>
+                </ul>
+                <h3>2. Webserver gửi lại client trang được yêu cầu</h3>
+                <p>
+                    Lúc này trình duyệt web đã biết địa chỉ IP của trang web, nó
+                    sẽ gửi một yêu cầu HTTP tới web server thông qua địa chỉ IP
+                    này.Web server xử lý và trả lại trang được yêu cầu theo các
+                    bước:
+                </p>
+                <ul>
+                    <li>
+                        <b>Nhận yêu cầu:</b> Yêu cầu này bao gồm phương thức (như GET
+                        hoặc POST), URL,...
+                    </li>
+                    <li>
+                        <b>Tìm kiếm tài nguyên:</b> Server tìm tài nguyên yêu cầu (ví
+                        dụ: file HTML, JavaScript, hình ảnh,...).
+                    </li>
+                    <li>
+                        <b>Xử lý yêu cầu:</b> nếu cần, server xử lý dữ liệu (chạy mã,
+                        truy vấn database).
+                    </li>
+                    <li>
+                        <b>Gửi phản hồi:</b> Sau khi tìm thấy hoặc tạo ra tài nguyên,
+                        web server gửi lại phản hồi HTTP tới trình duyệt.
+                    </li>
+                </ul>
+                <p>
+                    Nếu trang không tồn tại hoặc có lỗi khác xảy ra, nó sẽ gửi
+                    lại thông báo lỗi thích hợp.
+                </p>
+                <h3>3. Trình duyệt hiển thị trang web</h3>
+                <p>
+                    Khi nhận được phản hồi từ web server, trình duyệt bắt đầu
+                    quá trình hiển thị trang web cho người dùng. Theo các bước.
+                </p>
+                <ul>
+                    <li>
+                        <b>Phân tích HTML:</b> Trình duyệt phân tích tài liệu HTML để
+                        xây dựng cây DOM.
+                    </li>
+                    <li>
+                        <b>Yêu cầu tài nguyên bổ sung</b>: khi trình duyệt phát hiện
+                        các tài nguyên bổ sung (như CSS, JavaScript,..) và gửi
+                        các yêu cầu HTTP để tải chúng.
+                    </li>
+                    <li>
+                        <b>Xây dựng CSSOM:</b> Trình duyệt phân tích các tệp CSS để xây
+                        dựng cây CSSOM.
+                    </li>
+                    <li>
+                        <b>Thực thi JavaScript:</b> quá trình có thể thay đổi cây DOM
+                        và CSSOM.
+                    </li>
+                    <li>
+                        <b>Kết hợp và hiển thị:</b> Trình duyệt kết hợp cây DOM và
+                        CSSOM để xây dựng cây render, và hiển vị trang theo yêu
+                        cầu.
+                    </li>
+                </ul>
+                <p>
+                    Quá trình này diễn ra rất nhanh, thường chỉ mất vài giây
+                    hoặc thậm chí mili giây.
+                </p>
+            </div>
+        </main>
+        <footer>
+            <div class="content"></div>
+        </footer>
+    </body>
+</html>
