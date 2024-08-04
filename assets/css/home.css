@@ -116,7 +116,7 @@ main {
     height: 20vh;
     width: 42vw;
     min-width: 1110px;
-    padding-bottom: 90px;
+    padding-bottom: 75px;
 }
 .hero::after {
     content: "";
@@ -125,29 +125,33 @@ main {
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
-    height: 20px;
+    height: 30px;
     background: radial-gradient(
         ellipse at center,
-        rgba(0, 0, 0, 0.2) 10%,
-        rgba(0, 0, 0, 0) 80%
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0) 70%
     );
     filter: blur(5px);
     z-index: 1;
 }
 
 .hero .instruction {
-    max-width: 50%;
     text-align: right;
-    font-size: 2.5rem;
-    margin-right: 30px;
-    max-width: 500px;
+    /* margin-left: 120px; */
+    font-size: 2.75rem;
+    margin-right: 20px;
+    max-width: 300px;
     color: #fff;
     line-height: 3.5rem;
 }
 
 .hero .logo-apache {
-    max-width: 400px;
-    width: 50%;
+    margin-right: 20px;
+    /* max-width: 400px;
+    width: 30%; */
+    min-height: 150px;
+    height: 15vh;
+    max-height: 250px;
     align-items: center;
     padding: 0 4%;
     background-color: #fff;
