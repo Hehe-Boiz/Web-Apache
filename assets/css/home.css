@@ -1,0 +1,154 @@
+* {
+    /* sau này đỡ tính toán width để cộng thêm border padding  */
+    box-sizing: border-box;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    font-family: "Montserrat", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    background: #c0392b; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #8e44ad,
+        #c0392b
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #8e44ad,
+        #c0392b
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: "Montserrat", sans-serif;
+}
+
+.content {
+    /* nếu bình thường mà độ rộng lớn hơn 1110px thì hiện bth */
+    width: 1110px;
+    /* nếu như nhỏ hơn thì nó sẽ ăn theo max-width */
+    max-width: calc(100%-48px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* ======= Header ======= */
+header {
+    padding-top: 110px;
+    font-size: 2.75rem;
+    display: flex;
+    justify-self: center;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    font-family: "Open Sans", sans-serif;
+    border-radius: 999px;
+    border: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar ul {
+    display: flex;
+    padding: 15px 0;
+}
+
+.navbar ul a {
+    position: relative;
+    margin-left: 50px;
+    padding: 5px 15px;
+    color: #fff;
+}
+
+ul > li > a::before {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 999px;
+    transform: scaleX(0);
+    transition: all 0.5s ease-in-out;
+    bottom: 0;
+    right: 0.5;
+}
+.navbar li:hover > a::before {
+    transform: scaleX(0.5);
+}
+
+/* ============ Hero =========== */
+
+main {
+    margin-top: 80px;
+}
+
+.title {
+    font-size: 5rem;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1;
+    text-align: center;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 80px auto;
+    height: 20vh;
+    width: 42vw;
+    padding-bottom: 70px;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 20px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.2) 10%,
+        rgba(0, 0, 0, 0) 80%
+    );
+    filter: blur(5px);
+    z-index: 1;
+}
+
+.hero .instruction {
+    text-align: right;
+    font-size: 2.5rem;
+    margin-right: 35px;
+    max-width: 500px;
+    color: #fff;
+    line-height: 3.5rem;
+}
+
+.hero .logo-apache {
+    height: 150px;
+    max-height: 200px;
+    align-items: center;
+    padding: 0 4%;
+    background-color: #fff;
+    border-radius: 25px;
+}
+
+.banquyen {
+    position: absolute;
+    bottom: 0.7%;
+    left: 50%;
+    font-size: 1.75rem;
+    color: #fff;
+    transform: translateX(-50%);
+}
