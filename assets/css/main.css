@@ -1,13 +1,29 @@
 body{
     font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
+    font-size: 62.5%;
     background-color: #faf6f6;
 }
-.navbar{
-    position: sticky;
-    left: 0;
-    right: 0;
-    top: 0;
+
+a {
+    text-decoration: none;
+}
+
+.content {
+    /* nếu bình thường mà độ rộng lớn hơn 1110px thì hiện bth */
+    width: 1110px;
+    /* nếu như nhỏ hơn thì nó sẽ ăn theo max-width */
+    max-width: calc(100%-48px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ======= Navbar ======= */
+
+header {
+    padding-top: 15px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-self: center;
     background-color: rgba(255, 255, 255, 0.2);
     background: -webkit-linear-gradient(
         to right,
@@ -18,17 +34,65 @@ body{
         to right,
         #8e44ad,
         #c0392b
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ); 
+    position: sticky;
+    top: -15px;
+    z-index: 1;
+    border-radius: 0 0 20px 20px;
 }
 
-.menu ul{
-    text-align: center;
+.navbar {
+    display: flex;
+    justify-content: center;
+    font-family: "Open Sans", sans-serif;
+    margin-left: auto;
+    margin-right: auto;
 }
-.menu li{
-    display: inline-block;
-    margin:0 7%;
-    height: 50px;
-    box-sizing: border-box;
-    padding: 10px;
-    transition: 0.5s;
+
+header .content {
+    width: 70%;
+    min-width: 1110px;
+}
+
+.navbar ul {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    gap: 10%;
+    padding: 15px 0;
+}
+
+.navbar ul a {
+    position: relative;
+    /* margin-left: 50px; */
+    padding: 5px 20px;
+    color: #fff;
+}
+
+ul > li > a::before {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 999px;
+    transform: scaleX(0);
+    transition: all 0.5s ease-in-out;
+    bottom: 0;
+    left: 10%;
+}
+.navbar li:hover > a::before {
+    transform: scaleX(0.5);
+}
+
+/* ======== Main ======== */
+main .content {
+    max-width: 1100px;
+    width: 55%;
+    min-width: 850px;
+    font-size: 1.15rem;
+    line-height: 1.5;
+}
+main p, main h1,main h2,main h3 {
+    margin-top: 20px;
 }

@@ -130,29 +130,31 @@
                 <h1 class="title">Giới thiệu</h1>
                 <ul class="list">
                     <li>
-                        <a href="">Web Server là gì ?</a>
+                        <a href="">Web Server</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="">Web Server hoạt động như thế nào</a>
+                                <a href="">Web Server là gì</a>
                             </li>
                             <li>
-                                <a href=""></a>
+                                <a href="">Web Server hoạt động như thế nào</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="">Apache là gì</a>
+                        <a href="">Apache</a>
                         <ul class="sub-list">
                             <li>
-                                <a href=""></a>
+                                <a href="">Lịch sử và đặc điểm của Apache</a>
                             </li>
                             <li>
-                                <a href=""></a>
+                                <a href="">Ưu điểm của Apache</a>
                             </li>
                         </ul>
                     </li>
                 </ul>
-                <h2 class="sub-title">Web Server là gì</h2>
+                <aside class="sidebar"></aside>
+                <h2 class="sub-title">Web Server</h2>
+                <h3>Web Server là gì</h3>
                 <p>
                     Web server là máy chủ cài đặt các chương trình phục vụ các
                     ứng dụng web.Nó lưu trữ các tệp tài nguyên của trang web như
@@ -171,7 +173,7 @@
                         <i>Độ phổ biến của các Web Server vào năm 2017</i>
                     </figcaption>
                 </figure>
-                <h2 class="sub-title">Web server hoạt động như thế nào</h2>
+                <h3 class="sub-title">Web server hoạt động như thế nào</h3>
                 <img
                     src="assets/img/wshoatdong.webp"
                     alt="Cách web server hoạt động"
@@ -227,20 +229,21 @@
                 </p>
                 <ul>
                     <li>
-                        <b>Nhận yêu cầu:</b> Yêu cầu này bao gồm phương thức (như GET
-                        hoặc POST), URL,...
+                        <b>Nhận yêu cầu:</b> Yêu cầu này bao gồm phương thức
+                        (như GET hoặc POST), URL,...
                     </li>
                     <li>
-                        <b>Tìm kiếm tài nguyên:</b> Server tìm tài nguyên yêu cầu (ví
-                        dụ: file HTML, JavaScript, hình ảnh,...).
+                        <b>Tìm kiếm tài nguyên:</b> Server tìm tài nguyên yêu
+                        cầu (ví dụ: file HTML, JavaScript, hình ảnh,...).
                     </li>
                     <li>
-                        <b>Xử lý yêu cầu:</b> nếu cần, server xử lý dữ liệu (chạy mã,
-                        truy vấn database).
+                        <b>Xử lý yêu cầu:</b> nếu cần, server xử lý dữ liệu
+                        (chạy mã, truy vấn database).
                     </li>
                     <li>
-                        <b>Gửi phản hồi:</b> Sau khi tìm thấy hoặc tạo ra tài nguyên,
-                        web server gửi lại phản hồi HTTP tới trình duyệt.
+                        <b>Gửi phản hồi:</b> Sau khi tìm thấy hoặc tạo ra tài
+                        nguyên, web server gửi lại phản hồi HTTP tới trình
+                        duyệt.
                     </li>
                 </ul>
                 <p>
@@ -254,32 +257,90 @@
                 </p>
                 <ul>
                     <li>
-                        <b>Phân tích HTML:</b> Trình duyệt phân tích tài liệu HTML để
-                        xây dựng cây DOM.
+                        <b>Phân tích HTML:</b> Trình duyệt phân tích tài liệu
+                        HTML để xây dựng cây DOM.
                     </li>
                     <li>
-                        <b>Yêu cầu tài nguyên bổ sung</b>: khi trình duyệt phát hiện
-                        các tài nguyên bổ sung (như CSS, JavaScript,..) và gửi
-                        các yêu cầu HTTP để tải chúng.
+                        <b>Yêu cầu tài nguyên bổ sung</b>: khi trình duyệt phát
+                        hiện các tài nguyên bổ sung (như CSS, JavaScript,..) và
+                        gửi các yêu cầu HTTP để tải chúng.
                     </li>
                     <li>
-                        <b>Xây dựng CSSOM:</b> Trình duyệt phân tích các tệp CSS để xây
-                        dựng cây CSSOM.
+                        <b>Xây dựng CSSOM:</b> Trình duyệt phân tích các tệp CSS
+                        để xây dựng cây CSSOM.
                     </li>
                     <li>
-                        <b>Thực thi JavaScript:</b> quá trình có thể thay đổi cây DOM
-                        và CSSOM.
+                        <b>Thực thi JavaScript:</b> quá trình có thể thay đổi
+                        cây DOM và CSSOM.
                     </li>
                     <li>
-                        <b>Kết hợp và hiển thị:</b> Trình duyệt kết hợp cây DOM và
-                        CSSOM để xây dựng cây render, và hiển vị trang theo yêu
-                        cầu.
+                        <b>Kết hợp và hiển thị:</b> Trình duyệt kết hợp cây DOM
+                        và CSSOM để xây dựng cây render, và hiển vị trang theo
+                        yêu cầu.
                     </li>
                 </ul>
                 <p>
                     Quá trình này diễn ra rất nhanh, thường chỉ mất vài giây
                     hoặc thậm chí mili giây.
                 </p>
+                <h2 class="sub-title">Apache</h2>
+                <h3>Lịch sử và đặc điểm của Apache</h3>
+                <p>
+                    Apache HTTP Server, thường được gọi là Apache phát triển bởi
+                    Apache Software Foundation và ra mắt lần đầu tiên vào năm
+                    1995.Nó nhanh chóng trở thành web server phổ biến nhất trên
+                    Internet nhờ tính ổn định, linh hoạt và hỗ trợ cộng đồng mã
+                    nguồn mở mạnh mẽ.
+                </p>
+                <p>Đặc điểm của Apache</p>
+                <ul class="steps">
+                    <li>Mã nguồn mở: Apache là phần mềm mã nguồn mở</li>
+                    <li>
+                        Đa nền tảng: Apache có thể chạy trên nhiều hệ điều hành
+                        khác nhau, bao gồm Unix, Linux, Windows và macOS
+                    </li>
+                    <li>
+                        Đa mô-đun: Apache hỗ trợ nhiều mô-đun mở rộng, giúp bổ
+                        sung các tính năng như bảo mật, quản lý phiên.
+                    </li>
+                    <li>
+                        Cấu hình linh hoạt: Apache cho phép tùy chỉnh cấu hình
+                        chi tiết thông qua các tệp như `httpd.conf` và
+                        `.htaccess`.
+                    </li>
+                </ul>
+                <h3>Ưu điểm của Apache</h3>
+                <ul class="item">
+                    <li>
+                        Tính ổn định cao: Apache đã được phát triển và cải tiến
+                        qua nhiều năm, mang lại sự ổn định và tin cậy cao cho
+                        các trang web.
+                    </li>
+                    <li>
+                        Hỗ trợ cộng đồng mạnh mẽ: Là một dự án mã nguồn mở,
+                        Apache có một cộng đồng phát triển lớn và sôi động, cung
+                        cấp nhiều tài liệu và hỗ trợ.
+                    </li>
+                    <li>
+                        Tính linh hoạt: Apache hỗ trợ nhiều mô-đun mở rộng, cho
+                        phép dễ dàng tùy chỉnh và mở rộng tính năng.
+                    </li>
+                    <li>
+                        Bảo mật: Apache cung cấp nhiều tính năng bảo mật như
+                        SSL/TLS, xác thực người dùng và quản lý quyền truy cập,
+                        giúp bảo vệ trang web trước các mối đe dọa.
+                    </li>
+                    <li>
+                        Hiệu suất tốt: Apache có khả năng xử lý lưu lượng truy
+                        cập lớn và có thể được tối ưu hóa để cải thiện hiệu
+                        suất.
+                    </li>
+                    <li>
+                        Tích hợp tốt với các công nghệ khác: Apache dễ dàng tích
+                        hợp với nhiều ngôn ngữ lập trình và công nghệ web khác
+                        như PHP, Python, và Perl.
+                    </li>
+                </ul>
             </div>
         </main>
         <footer>
