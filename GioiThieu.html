@@ -151,13 +151,10 @@
                         <a href="">Apache</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="">Lịch sử hình thành</a>
+                                <a href="">Lịch sử và đặc điểm của Apache</a>
                             </li>
                             <li>
-                                <a href="">Đặc điểm của Apache</a>
-                            </li>
-                            <li>
-                                <a href="">Ưu điểm của Apache</a>
+                                <a href="">Ưu điểm và nhược điểm của Apache</a>
                             </li>
                         </ul>
                     </li>
@@ -174,7 +171,7 @@
                     thức khác. Có nhiều web server khác nhau như: Apache, Nginx,
                     IIS, … Web server thông dụng nhất hiện nay:
                 </p>
-                <figure class="Stats-webserver">
+                <figure class="webserver">
                     <img
                         src="assets/img/websever.png"
                         alt="Các Web Server thông dụng"
@@ -184,11 +181,15 @@
                     </figcaption>
                 </figure>
                 <h3 class="content-title">Web server hoạt động như thế nào</h3>
-                <img
-                    src="assets/img/wshoatdong.webp"
-                    alt="Cách web server hoạt động"
-                    class="Active-webserver"
-                />
+                <figure class="webserver Active-webserver">
+                    <img
+                        src="assets/img/wshoatdong.webp"
+                        alt="Cách web server hoạt động"
+                    />
+                    <figcaption>
+                        <i>Cách WebServer hoạt động</i>
+                    </figcaption>
+                </figure>
                 <p>
                     Khi một người dùng nhập địa chỉ URL vào trình duyệt, trình
                     duyệt sẽ gửi một yêu cầu HTTP tới web server. Web server
@@ -203,98 +204,121 @@
                     https://github.com/Hehe-Boiz) nó sẽ tiến hành các bước sau
                     để gửi lại phản hồi cho bạn.
                 </p>
-                <p class="subject">1. Trình duyệt phân giải tên miền thành địa chỉ IP</p>
-                <p>
-                    Trình duyệt của bạn sẽ cần phải xác định địa chỉ IP nào mà
-                    tên miền github.com/Hehe-Boiz trỏ vào. Để làm việc đó trình
-                    duyệt sẽ thục hiện các bước:
-                </p>
-                <ul class="steps">
+                <ol class="steps-out">
                     <li>
-                        <b>Trình duyệt kiểm tra bộ nhớ cache nội bộ:</b> Trước
-                        tiên, trình duyệt kiểm tra xem liệu địa chỉ IP của tên
-                        miền đã được lưu trong bộ nhớ cache của nó hay chưa.
+                        <p class="subject">
+                            Trình duyệt phân giải tên miền thành địa chỉ IP
+                        </p>
+                        <p>
+                            Trình duyệt của bạn sẽ cần phải xác định địa chỉ IP
+                            nào mà tên miền github.com/Hehe-Boiz trỏ vào. Để làm
+                            việc đó trình duyệt sẽ thục hiện các bước:
+                        </p>
+                        <ol class="steps">
+                            <li>
+                                <b>Trình duyệt kiểm tra bộ nhớ cache nội bộ:</b>
+                                Trước tiên, trình duyệt kiểm tra xem liệu địa
+                                chỉ IP của tên miền đã được lưu trong bộ nhớ
+                                cache của nó hay chưa.
+                            </li>
+                            <li>
+                                <b>Kiểm tra bộ nhớ cache hệ điều hành:</b> Nếu
+                                nó không tìm thấy, nó sẽ hỏi hệ điều hành. Hệ
+                                điều hành có thể đã lưu trữ địa chỉ IP này trong
+                                bộ nhớ cache của mình.
+                            </li>
+                            <li>
+                                <b>Yêu cầu đến máy chủ DNS:</b> Nếu cả 2 đều
+                                không, yêu cầu sẽ được gửi tới máy chủ DNS. Máy
+                                chủ DNS sẽ tìm kiếm và trả về địa chỉ IP tương
+                                ứng với tên miền.
+                            </li>
+                            <li>
+                                <b>Quá trình phân giải DNS:</b> Nếu máy chủ DNS
+                                không có thông tin, nó sẽ liên hệ với các máy
+                                chủ DNS khác (những máy chủ DNS cấp cao hơn) để
+                                lấy địa chỉ IP.
+                            </li>
+                        </ol>
                     </li>
                     <li>
-                        <b>Kiểm tra bộ nhớ cache hệ điều hành:</b> Nếu nó không
-                        tìm thấy, nó sẽ hỏi hệ điều hành. Hệ điều hành có thể đã
-                        lưu trữ địa chỉ IP này trong bộ nhớ cache của mình.
+                        <p class="subject">
+                            Webserver gửi lại client trang được yêu cầu
+                        </p>
+                        <p>
+                            Lúc này trình duyệt web đã biết địa chỉ IP của trang
+                            web, nó sẽ gửi một yêu cầu HTTP tới web server thông
+                            qua địa chỉ IP này.Web server xử lý và trả lại trang
+                            được yêu cầu theo các bước:
+                        </p>
+                        <ol class="steps">
+                            <li>
+                                <b>Nhận yêu cầu:</b> Yêu cầu này bao gồm phương
+                                thức (như GET hoặc POST), URL,...và các thông
+                                tin khác.
+                            </li>
+                            <li>
+                                <b>Tìm kiếm tài nguyên:</b> Server tìm tài
+                                nguyên yêu cầu (ví dụ: file HTML, JavaScript,
+                                hình ảnh,...) trong hệ thống tệp của mình.
+                            </li>
+                            <li>
+                                <b>Xử lý yêu cầu:</b> nếu cần, có thể thực hiện
+                                thêm các bước xử lý dữ liệu (chạy mã, truy vấn
+                                database,...).
+                            </li>
+                            <li>
+                                <b>Gửi phản hồi:</b> Sau khi tìm thấy hoặc tạo
+                                ra tài nguyên, web server gửi lại phản hồi HTTP
+                                tới trình duyệt. Phản hồi này bao gồm mã trạng
+                                thái (như 200 OK), nội dung trang web,...
+                            </li>
+                        </ol>
+                        <p>
+                            Nếu trang không tồn tại hoặc có lỗi khác xảy ra, nó
+                            sẽ gửi lại thông báo lỗi thích hợp.
+                        </p>
                     </li>
                     <li>
-                        <b>Yêu cầu đến máy chủ DNS:</b> Nếu cả 2 đều không, yêu
-                        cầu sẽ được gửi tới máy chủ DNS. Máy chủ DNS sẽ tìm kiếm
-                        và trả về địa chỉ IP tương ứng với tên miền.
+                        <p class="subject">Trình duyệt hiển thị trang web</p>
+                        <p>
+                            Khi nhận được phản hồi từ web server, trình duyệt
+                            bắt đầu quá trình hiển thị trang web cho người dùng.
+                            Theo các bước.
+                        </p>
+                        <ol class="steps">
+                            <li>
+                                <b>Phân tích HTML:</b> Trình duyệt phân tích tài
+                                liệu HTML để xây dựng cây DOM.
+                            </li>
+                            <li>
+                                <b>Yêu cầu tài nguyên bổ sung</b>: khi trình
+                                duyệt phát hiện các tài nguyên bổ sung (như CSS,
+                                JavaScript,..) và gửi các yêu cầu HTTP để tải
+                                chúng.
+                            </li>
+                            <li>
+                                <b>Xây dựng CSSOM:</b> Trình duyệt phân tích các
+                                tệp CSS để xây dựng cây CSSOM.
+                            </li>
+                            <li>
+                                <b>Thực thi JavaScript:</b> quá trình có thể
+                                thay đổi cây DOM và CSSOM.
+                            </li>
+                            <li>
+                                <b>Kết hợp và hiển thị:</b> Trình duyệt kết hợp
+                                cây DOM và CSSOM để xây dựng cây render, và hiển
+                                vị trang theo yêu cầu.
+                            </li>
+                        </ol>
                     </li>
-                    <li>
-                        <b>Quá trình phân giải DNS:</b> Nếu máy chủ DNS không có
-                        thông tin, nó sẽ liên hệ với các máy chủ DNS khác (những
-                        máy chủ DNS cấp cao hơn) để lấy địa chỉ IP.
-                    </li>
-                </ul>
-                <p class="subject">2. Webserver gửi lại client trang được yêu cầu</p>
-                <p>
-                    Lúc này trình duyệt web đã biết địa chỉ IP của trang web, nó
-                    sẽ gửi một yêu cầu HTTP tới web server thông qua địa chỉ IP
-                    này.Web server xử lý và trả lại trang được yêu cầu theo các
-                    bước:
-                </p>
-                <ul class="steps">
-                    <li>
-                        <b>Nhận yêu cầu:</b> Yêu cầu này bao gồm phương thức
-                        (như GET hoặc POST), URL,...
-                    </li>
-                    <li>
-                        <b>Tìm kiếm tài nguyên:</b> Server tìm tài nguyên yêu
-                        cầu (ví dụ: file HTML, JavaScript, hình ảnh,...).
-                    </li>
-                    <li>
-                        <b>Xử lý yêu cầu:</b> nếu cần, server xử lý dữ liệu
-                        (chạy mã, truy vấn database).
-                    </li>
-                    <li>
-                        <b>Gửi phản hồi:</b> Sau khi tìm thấy hoặc tạo ra tài
-                        nguyên, web server gửi lại phản hồi HTTP tới trình
-                        duyệt.
-                    </li>
-                </ul>
-                <p>
-                    Nếu trang không tồn tại hoặc có lỗi khác xảy ra, nó sẽ gửi
-                    lại thông báo lỗi thích hợp.
-                </p>
-                <p class="subject">3. Trình duyệt hiển thị trang web</p>
-                <p>
-                    Khi nhận được phản hồi từ web server, trình duyệt bắt đầu
-                    quá trình hiển thị trang web cho người dùng. Theo các bước.
-                </p>
-                <ul class="steps">
-                    <li>
-                        <b>Phân tích HTML:</b> Trình duyệt phân tích tài liệu
-                        HTML để xây dựng cây DOM.
-                    </li>
-                    <li>
-                        <b>Yêu cầu tài nguyên bổ sung</b>: khi trình duyệt phát
-                        hiện các tài nguyên bổ sung (như CSS, JavaScript,..) và
-                        gửi các yêu cầu HTTP để tải chúng.
-                    </li>
-                    <li>
-                        <b>Xây dựng CSSOM:</b> Trình duyệt phân tích các tệp CSS
-                        để xây dựng cây CSSOM.
-                    </li>
-                    <li>
-                        <b>Thực thi JavaScript:</b> quá trình có thể thay đổi
-                        cây DOM và CSSOM.
-                    </li>
-                    <li>
-                        <b>Kết hợp và hiển thị:</b> Trình duyệt kết hợp cây DOM
-                        và CSSOM để xây dựng cây render, và hiển vị trang theo
-                        yêu cầu.
-                    </li>
-                </ul>
+                </ol>
                 <p>
                     Quá trình này diễn ra rất nhanh, thường chỉ mất vài giây
                     hoặc thậm chí mili giây.
                 </p>
                 <h2 class="sub-title">Apache</h2>
+                <h3 class="content-title">Lịch sử và đặc điểm của Apache</h3>
                 <p class="subject">Lịch sử hình thành</p>
                 <p>
                     Apache HTTP Server, thường được gọi là Apache phát triển bởi
@@ -303,59 +327,110 @@
                     Internet nhờ tính ổn định, linh hoạt và hỗ trợ cộng đồng mã
                     nguồn mở mạnh mẽ.
                 </p>
-                <p class="subject">Đặc điểm của Apache</p>
+                <p class="subject">Đặc điểm</p>
                 <ul class="item">
                     <li><b>Mã nguồn mở:</b> Apache là phần mềm mã nguồn mở</li>
                     <li>
-                        <b>Đa nền tảng:</b> Apache có thể chạy trên nhiều hệ điều hành
-                        khác nhau, bao gồm Unix, Linux, Windows và macOS
+                        <b>Đa nền tảng:</b> Apache có thể chạy trên nhiều hệ
+                        điều hành khác nhau, bao gồm Unix, Linux, Windows và
+                        macOS
                     </li>
                     <li>
-                        <b>Đa mô-đun:</b> Apache hỗ trợ nhiều mô-đun mở rộng, giúp bổ
-                        sung các tính năng như bảo mật, quản lý phiên.
+                        <b>Đa mô-đun:</b> Apache hỗ trợ nhiều mô-đun mở rộng,
+                        giúp bổ sung các tính năng như bảo mật, quản lý phiên.
                     </li>
                     <li>
-                        <b>Cấu hình linh hoạt:</b> Apache cho phép tùy chỉnh cấu hình
-                        chi tiết thông qua các tệp như `httpd.conf` và
+                        <b>Cấu hình linh hoạt:</b> Apache cho phép tùy chỉnh cấu
+                        hình chi tiết thông qua các tệp như `httpd.conf` và
                         `.htaccess`.
                     </li>
                 </ul>
-                <p class="subject">Ưu điểm của Apache</p>
+                <h3 class="content-title">Ưu điểm và nhược điểm của Apache</h3>
+                <p class="subject">Ưu điểm</p>
                 <ul class="item">
                     <li>
-                        <b>Tính ổn định cao:</b> Apache đã được phát triển và cải tiến
-                        qua nhiều năm, mang lại sự ổn định và tin cậy cao cho
-                        các trang web.
+                        <b>Tính ổn định cao:</b> Apache đã được phát triển và
+                        cải tiến qua nhiều năm, mang lại sự ổn định và tin cậy
+                        cao cho các trang web.
                     </li>
                     <li>
-                        <b>Hỗ trợ cộng đồng mạnh mẽ:</b> Là một dự án mã nguồn mở,
-                        Apache có một cộng đồng phát triển lớn và sôi động, cung
-                        cấp nhiều tài liệu và hỗ trợ.
+                        <b>Hỗ trợ cộng đồng mạnh mẽ:</b> Là một dự án mã nguồn
+                        mở, Apache có một cộng đồng phát triển lớn và sôi động,
+                        cung cấp nhiều tài liệu và hỗ trợ.
                     </li>
                     <li>
-                        <b>Tính linh hoạt:</b> Apache hỗ trợ nhiều mô-đun mở rộng, cho
-                        phép dễ dàng tùy chỉnh và mở rộng tính năng.
+                        <b>Tính linh hoạt, thân thiện với người dùng:</b> Apache
+                        hỗ trợ nhiều mô-đun mở rộng, cho phép dễ dàng tùy chỉnh
+                        và mở rộng tính năng.
                     </li>
                     <li>
-                        <b>Bảo mật:</b> Apache cung cấp nhiều tính năng bảo mật như
-                        SSL/TLS, xác thực người dùng và quản lý quyền truy cập,
-                        giúp bảo vệ trang web trước các mối đe dọa.
+                        <b>Bảo mật:</b> Apache cung cấp nhiều tính năng bảo mật
+                        như SSL/TLS, xác thực người dùng và quản lý quyền truy
+                        cập, giúp bảo vệ trang web trước các mối đe dọa.
                     </li>
                     <li>
-                        <b>Hiệu suất tốt:</b> Apache có khả năng xử lý lưu lượng truy
-                        cập lớn và có thể được tối ưu hóa để cải thiện hiệu
+                        <b>Hiệu suất tốt:</b> Apache có khả năng xử lý lưu lượng
+                        truy cập lớn và có thể được tối ưu hóa để cải thiện hiệu
                         suất.
                     </li>
                     <li>
-                        <b>Tích hợp tốt với các công nghệ khác:</b> Apache dễ dàng tích
-                        hợp với nhiều ngôn ngữ lập trình và công nghệ web khác
-                        như PHP, Python, và Perl.
+                        <b>Tích hợp tốt với các công nghệ khác:</b> Apache dễ
+                        dàng tích hợp với nhiều ngôn ngữ lập trình và công nghệ
+                        web khác như PHP, Python, và Perl.
                     </li>
                 </ul>
+                <p class="subject">Nhược điểm</p>
+                <p>
+                    Bên cạnh những ưu điểm có thể nói gần như là hoàn hảo như
+                    thế thì vẫn tồn tại vài nhược điểm:
+                </p>
+                <ul class="item">
+                    <li>
+                        <b>Hiệu suất và Tính mở rộng:</b> Apache có thể gặp khó
+                        khăn với hiệu suất và khả năng mở rộng khi xử lý nhiều
+                        yêu cầu đồng thời. Điều này chủ yếu là do cách nó xử lý
+                        các kết nối, đặc biệt là khi sử dụng mô hình
+                        multi-processing.
+                    </li>
+                    <li>
+                        <b>Tài nguyên:</b> Apache tiêu tốn nhiều tài nguyên hệ
+                        thống so với một số máy chủ web khác như Nginx, đặc biệt
+                        là khi xử lý nhiều yêu cầu kết nối đồng thời
+                    </li>
+                    <li>
+                        <b>Khả năng cấu hình:</b> Dù Apache rất linh hoạt, nhưng
+                        cấu hình của nó có thể trở nên phức tạp và khó quản lý
+                        khi có nhiều mô-đun và tùy chọn
+                    </li>
+                    <li>
+                        <b>Quản lý kết nối:</b> Apache xử lý kết nối bằng cách
+                        tạo ra một luồng hoặc tiến trình cho mỗi kết nối, điều
+                        này có thể không tối ưu cho các ứng dụng yêu cầu xử lý
+                        một lượng lớn kết nối đồng thời.
+                    </li>
+                    <li>
+                        <b>Hỗ trợ cho WebSocket:</b> Apache không hỗ trợ
+                        WebSocket trực tiếp, điều này có thể cần đến các mô-đun
+                        bổ sung hoặc cấu hình phức tạp hơn để triển khai.
+                    </li>
+                </ul>
+                <div class="wrap">
+                    <p class="excerpt">
+                        <strong>Bài viết và web tham khảo :</strong>
+                    </p>
+                    <ul class="links">
+                        <li>https://vietnix.vn/apache-la-gi/</li>
+                        <li>https://topdev.vn/blog/web-server/</li>
+                        <li>https://chat.openai.com/</li>
+                        <li>https://claude.ai/new</li>
+                    </ul>
+                </div>
             </div>
         </main>
         <footer>
             <div class="content"></div>
+                <img src="" alt="" class="logo">
+            <p class="copy"><strong> Nội dung được thực hiện bởi:</strong> Minh Nhựt và Bá Tân ©</p>
         </footer>
     </body>
 </html>
