@@ -91,8 +91,12 @@ main .content {
     width: 55%;
     min-width: 850px;
     font-size: 1.15rem;
-    line-height: 1.5;
+    line-height: 1.7;
 }
-main p, main h1,main h2,main h3 {
+main p, main h1,main h2,main h3, main img {
     margin-top: 20px;
+}
+
+main li {
+    margin-top: 10px;
 }

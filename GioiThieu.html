@@ -102,6 +102,13 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" href="assets/css/GioiThieu.css" />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+
         <title>Hướng dẫn Apache</title>
     </head>
     <body>
@@ -144,7 +151,10 @@
                         <a href="">Apache</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="">Lịch sử và đặc điểm của Apache</a>
+                                <a href="">Lịch sử hình thành</a>
+                            </li>
+                            <li>
+                                <a href="">Đặc điểm của Apache</a>
                             </li>
                             <li>
                                 <a href="">Ưu điểm của Apache</a>
@@ -154,7 +164,7 @@
                 </ul>
                 <aside class="sidebar"></aside>
                 <h2 class="sub-title">Web Server</h2>
-                <h3>Web Server là gì</h3>
+                <h3 class="content-title">Web Server là gì</h3>
                 <p>
                     Web server là máy chủ cài đặt các chương trình phục vụ các
                     ứng dụng web.Nó lưu trữ các tệp tài nguyên của trang web như
@@ -164,7 +174,7 @@
                     thức khác. Có nhiều web server khác nhau như: Apache, Nginx,
                     IIS, … Web server thông dụng nhất hiện nay:
                 </p>
-                <figure>
+                <figure class="Stats-webserver">
                     <img
                         src="assets/img/websever.png"
                         alt="Các Web Server thông dụng"
@@ -173,10 +183,11 @@
                         <i>Độ phổ biến của các Web Server vào năm 2017</i>
                     </figcaption>
                 </figure>
-                <h3 class="sub-title">Web server hoạt động như thế nào</h3>
+                <h3 class="content-title">Web server hoạt động như thế nào</h3>
                 <img
                     src="assets/img/wshoatdong.webp"
                     alt="Cách web server hoạt động"
+                    class="Active-webserver"
                 />
                 <p>
                     Khi một người dùng nhập địa chỉ URL vào trình duyệt, trình
@@ -192,7 +203,7 @@
                     https://github.com/Hehe-Boiz) nó sẽ tiến hành các bước sau
                     để gửi lại phản hồi cho bạn.
                 </p>
-                <h3>1.Trình duyệt phân giải tên miền thành địa chỉ IP</h3>
+                <p class="subject">1. Trình duyệt phân giải tên miền thành địa chỉ IP</p>
                 <p>
                     Trình duyệt của bạn sẽ cần phải xác định địa chỉ IP nào mà
                     tên miền github.com/Hehe-Boiz trỏ vào. Để làm việc đó trình
@@ -220,14 +231,14 @@
                         máy chủ DNS cấp cao hơn) để lấy địa chỉ IP.
                     </li>
                 </ul>
-                <h3>2. Webserver gửi lại client trang được yêu cầu</h3>
+                <p class="subject">2. Webserver gửi lại client trang được yêu cầu</p>
                 <p>
                     Lúc này trình duyệt web đã biết địa chỉ IP của trang web, nó
                     sẽ gửi một yêu cầu HTTP tới web server thông qua địa chỉ IP
                     này.Web server xử lý và trả lại trang được yêu cầu theo các
                     bước:
                 </p>
-                <ul>
+                <ul class="steps">
                     <li>
                         <b>Nhận yêu cầu:</b> Yêu cầu này bao gồm phương thức
                         (như GET hoặc POST), URL,...
@@ -250,12 +261,12 @@
                     Nếu trang không tồn tại hoặc có lỗi khác xảy ra, nó sẽ gửi
                     lại thông báo lỗi thích hợp.
                 </p>
-                <h3>3. Trình duyệt hiển thị trang web</h3>
+                <p class="subject">3. Trình duyệt hiển thị trang web</p>
                 <p>
                     Khi nhận được phản hồi từ web server, trình duyệt bắt đầu
                     quá trình hiển thị trang web cho người dùng. Theo các bước.
                 </p>
-                <ul>
+                <ul class="steps">
                     <li>
                         <b>Phân tích HTML:</b> Trình duyệt phân tích tài liệu
                         HTML để xây dựng cây DOM.
@@ -284,7 +295,7 @@
                     hoặc thậm chí mili giây.
                 </p>
                 <h2 class="sub-title">Apache</h2>
-                <h3>Lịch sử và đặc điểm của Apache</h3>
+                <p class="subject">Lịch sử hình thành</p>
                 <p>
                     Apache HTTP Server, thường được gọi là Apache phát triển bởi
                     Apache Software Foundation và ra mắt lần đầu tiên vào năm
@@ -292,51 +303,51 @@
                     Internet nhờ tính ổn định, linh hoạt và hỗ trợ cộng đồng mã
                     nguồn mở mạnh mẽ.
                 </p>
-                <p>Đặc điểm của Apache</p>
-                <ul class="steps">
-                    <li>Mã nguồn mở: Apache là phần mềm mã nguồn mở</li>
+                <p class="subject">Đặc điểm của Apache</p>
+                <ul class="item">
+                    <li><b>Mã nguồn mở:</b> Apache là phần mềm mã nguồn mở</li>
                     <li>
-                        Đa nền tảng: Apache có thể chạy trên nhiều hệ điều hành
+                        <b>Đa nền tảng:</b> Apache có thể chạy trên nhiều hệ điều hành
                         khác nhau, bao gồm Unix, Linux, Windows và macOS
                     </li>
                     <li>
-                        Đa mô-đun: Apache hỗ trợ nhiều mô-đun mở rộng, giúp bổ
+                        <b>Đa mô-đun:</b> Apache hỗ trợ nhiều mô-đun mở rộng, giúp bổ
                         sung các tính năng như bảo mật, quản lý phiên.
                     </li>
                     <li>
-                        Cấu hình linh hoạt: Apache cho phép tùy chỉnh cấu hình
+                        <b>Cấu hình linh hoạt:</b> Apache cho phép tùy chỉnh cấu hình
                         chi tiết thông qua các tệp như `httpd.conf` và
                         `.htaccess`.
                     </li>
                 </ul>
-                <h3>Ưu điểm của Apache</h3>
+                <p class="subject">Ưu điểm của Apache</p>
                 <ul class="item">
                     <li>
-                        Tính ổn định cao: Apache đã được phát triển và cải tiến
+                        <b>Tính ổn định cao:</b> Apache đã được phát triển và cải tiến
                         qua nhiều năm, mang lại sự ổn định và tin cậy cao cho
                         các trang web.
                     </li>
                     <li>
-                        Hỗ trợ cộng đồng mạnh mẽ: Là một dự án mã nguồn mở,
+                        <b>Hỗ trợ cộng đồng mạnh mẽ:</b> Là một dự án mã nguồn mở,
                         Apache có một cộng đồng phát triển lớn và sôi động, cung
                         cấp nhiều tài liệu và hỗ trợ.
                     </li>
                     <li>
-                        Tính linh hoạt: Apache hỗ trợ nhiều mô-đun mở rộng, cho
+                        <b>Tính linh hoạt:</b> Apache hỗ trợ nhiều mô-đun mở rộng, cho
                         phép dễ dàng tùy chỉnh và mở rộng tính năng.
                     </li>
                     <li>
-                        Bảo mật: Apache cung cấp nhiều tính năng bảo mật như
+                        <b>Bảo mật:</b> Apache cung cấp nhiều tính năng bảo mật như
                         SSL/TLS, xác thực người dùng và quản lý quyền truy cập,
                         giúp bảo vệ trang web trước các mối đe dọa.
                     </li>
                     <li>
-                        Hiệu suất tốt: Apache có khả năng xử lý lưu lượng truy
+                        <b>Hiệu suất tốt:</b> Apache có khả năng xử lý lưu lượng truy
                         cập lớn và có thể được tối ưu hóa để cải thiện hiệu
                         suất.
                     </li>
                     <li>
-                        Tích hợp tốt với các công nghệ khác: Apache dễ dàng tích
+                        <b>Tích hợp tốt với các công nghệ khác:</b> Apache dễ dàng tích
                         hợp với nhiều ngôn ngữ lập trình và công nghệ web khác
                         như PHP, Python, và Perl.
                     </li>
