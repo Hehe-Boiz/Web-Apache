@@ -15,7 +15,7 @@ a {
     /* nếu như nhỏ hơn thì nó sẽ ăn theo max-width */
     max-width: calc(100%-48px);
     /* trừ cho sidebar */
-    margin-left: calc(50vh - 20%);
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -37,6 +37,7 @@ header {
     top: -15px;
     z-index: 1;
     border-radius: 0 0 20px 20px;
+    min-width: 1110px;
 }
 
 .navbar {
@@ -53,10 +54,9 @@ header .content {
 }
 
 .navbar ul {
-    justify-content: center;
+    justify-content: space-around;
     width: 100%;
     display: flex;
-    gap: 10%;
     padding: 15px 0;
 }
 
@@ -86,6 +86,11 @@ ul > li > a::before {
 /* ======== Main ======== */
 main {
     display: flex;
+    justify-content: space-around;
+}
+
+main .content {
+    margin-left: calc(50vh - 20%);
 }
 
 main * {
@@ -141,7 +146,7 @@ main .sidebar {
     top: 70px;
     left: 0;
     width: 18%;
-    min-width: 150px;
+    min-width: 250px;
     max-width: 450px;
     height: 100%;
     color: #a0aec0;
@@ -182,6 +187,11 @@ main .sidebar .list li a:hover {
     transform: translateX(5px);
     /* color: #8e44ad; */
     color: #c0392b;
+}
+
+.sidebar ul li a.active {
+    color: #c0392b;
+    font-weight: 600;
 }
 
 .list {
