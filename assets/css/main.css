@@ -1,4 +1,4 @@
-body{
+body {
     font-family: "Montserrat", sans-serif;
     font-size: 62.5%;
     background-color: #faf6f6;
@@ -14,7 +14,8 @@ a {
     width: 1110px;
     /* nếu như nhỏ hơn thì nó sẽ ăn theo max-width */
     max-width: calc(100%-48px);
-    margin-left: auto;
+    /* trừ cho sidebar */
+    margin-left: calc(50vh - 20%);
     margin-right: auto;
 }
 
@@ -31,11 +32,7 @@ header {
         #8e44ad,
         #c0392b
     ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #8e44ad,
-        #c0392b
-    ); 
+    background: linear-gradient(to right, #8e44ad, #c0392b);
     position: sticky;
     top: -15px;
     z-index: 1;
@@ -87,6 +84,9 @@ ul > li > a::before {
 }
 
 /* ======== Main ======== */
+main {
+    display: flex;
+}
 
 main * {
     color: black;
@@ -99,7 +99,11 @@ main .content {
     font-size: 1.15rem;
     line-height: 1.7;
 }
-main p, main h1,main h2,main h3, main img {
+main p,
+main h1,
+main h2,
+main h3,
+main img {
     margin-top: 20px;
 }
 
@@ -112,6 +116,74 @@ main li {
     font-size: 3.7rem;
     font-weight: 700;
 }
+
+main .sidebar .desc {
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+main .sidebar .desc::after {
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    content: "";
+    background-color: #181821;
+    height: 4px;
+    width: 200px;
+    border-radius: 999px;
+}
+
+main .sidebar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 70px;
+    left: 0;
+    width: 18%;
+    min-width: 150px;
+    max-width: 450px;
+    height: 100%;
+    color: #a0aec0;
+    margin-top: 50px;
+    padding-left: 50px;
+    font-size: 1.1rem;
+    /* overflow: auto; */
+}
+
+main .sidebar li {
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+main .sidebar .list {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+main .sidebar .list li {
+    position: relative;
+}
+
+main .sidebar .list li::before {
+    left: -15px;
+    position: absolute;
+    content: "#";
+    color: red;
+}
+
+main .sidebar .list li a {
+    display: inline-block;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+main .sidebar .list li a:hover {
+    transform: translateX(5px);
+    /* color: #8e44ad; */
+    color: #c0392b;
+}
+
 .list {
     margin-top: 20px;
 }
@@ -188,7 +260,7 @@ footer {
     margin-top: 65px;
     padding: 50px 0 58px;
     font-size: 1.1rem;
-    background-color:#181821;
+    background-color: #181821;
     color: #a9b3bb;
 }
 
@@ -203,7 +275,7 @@ footer .Logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Vergilia';
+    font-family: "Vergilia";
     font-size: 2rem;
     color: #c9c8c8;
 }
@@ -216,7 +288,7 @@ footer .social {
     display: flex;
     align-items: center;
     margin-left: 20px;
-} 
+}
 footer .social-link {
     display: flex;
     align-items: center;
@@ -227,7 +299,7 @@ footer .social-link + .social-link {
     margin-left: 10px;
 }
 
-footer .social-link img{
+footer .social-link img {
     width: 25px;
     height: 25px;
 }
@@ -238,7 +310,7 @@ footer .row > div {
     padding-bottom: 10px;
 }
 
-footer .banquyen{
+footer .banquyen {
     text-align: center;
     margin-top: 40px;
 }

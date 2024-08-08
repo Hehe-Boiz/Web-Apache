@@ -94,9 +94,8 @@
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="assets/fonts/Aerospace.css">
-        <link rel="stylesheet" href="assets/fonts/Vergilia.css">
-
+        <link rel="stylesheet" href="assets/fonts/Aerospace.css" />
+        <link rel="stylesheet" href="assets/fonts/Vergilia.css" />
 
         <!-- Reset CSS -->
         <link rel="stylesheet" href="assets/css/reset.css" />
@@ -129,6 +128,34 @@
             </div>
         </header>
         <main>
+            <aside class="sidebar">
+                <p class="desc">Nội dung</p>
+                <ul class="list">
+                    <li>
+                        <a href="">Web Server</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="">Web Server là gì</a>
+                            </li>
+                            <li>
+                                <a href="">Web Server hoạt động như thế nào</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">Apache</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="">Lịch sử và đặc điểm của Apache</a>
+                            </li>
+                            <li>
+                                <a href="">Ưu điểm và nhược điểm của Apache</a>
+                            </li>
+                            <li><a href="">Cách Apache hoạt động</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
             <div class="content">
                 <h1 class="title">Giới thiệu</h1>
                 <ul class="list">
@@ -152,10 +179,10 @@
                             <li>
                                 <a href="">Ưu điểm và nhược điểm của Apache</a>
                             </li>
+                            <li><a href="">Cách Apache hoạt động</a></li>
                         </ul>
                     </li>
                 </ul>
-                <aside class="sidebar"></aside>
                 <h2 class="sub-title">Web Server</h2>
                 <h3 class="content-title">Web Server là gì</h3>
                 <p>
@@ -396,7 +423,8 @@
                     <li>
                         <b>Khả năng cấu hình:</b> Dù Apache rất linh hoạt, nhưng
                         cấu hình của nó có thể trở nên phức tạp và khó quản lý
-                        khi có nhiều mô-đun và tùy chọn
+                        khi có nhiều mô-đun và tùy chọn. Và khi quá nhiều lựa
+                        chọn thiết lập có thể gây ra các điểm yếu bảo mật.
                     </li>
                     <li>
                         <b>Quản lý kết nối:</b> Apache xử lý kết nối bằng cách
@@ -410,6 +438,142 @@
                         bổ sung hoặc cấu hình phức tạp hơn để triển khai.
                     </li>
                 </ul>
+                <h3 class="content-title">Cách Apache hoạt động</h3>
+                <p>
+                    Apache hoạt động theo kiến trúc đa tiến trình
+                    (multi-process), hướng kết nối (connection-oriented). Kiến
+                    trúc này có thể hiểu là mỗi yêu cầu sẽ được xử lý bởi một
+                    tiến trình riêng biệt hoặc một thread riêng biệt, tùy thuộc
+                    vào cấu hình Multi-Processing Module (MPM) được sử dụng như:
+                    prefork MPM, worker MPM, Event MPM. Mỗi tiến trình hoặc
+                    thread này được gọi là một Worker, có khả năng xử lý một kết
+                    nối tại một thời điểm.
+                </p>
+                <p class="subject">Chi tiết các bước</p>
+                <ol class="steps">
+                    <li>
+                        Khởi động và Cấu hình
+                        <ul class="item">
+                            <li>
+                                Khi Apache khởi động nó tạo ra một tiến cha được
+                                gọi là tiến trình chính (parent process) dựa
+                                trên các cấu hình trong tệp <i>`httpd.conf`</i>.
+                            </li>
+                            <li>
+                                Tiến trình chính có nhiệm vụ đọc cấu hình và
+                                quản lý các tiến trình con (child processes).
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Tạo Tiến trình Con và Luồng
+                        <ul class="item">
+                            <li>
+                                Tiến trình cha sẽ tọa ra một số tiến trình con.
+                                Số lượng này được xác định bởi các thông số cấu
+                                hình như <i>`StartServers`</i>,
+                                <i>`MinSpareThreads`</i>,
+                                <i>`MaxSpareThreads`</i>, và
+                                <i>`MaxRequestWorkers`</i>.
+                            </li>
+                            <li>
+                                Tùy vào cấu hình MPM mà tiến trình có tạo ra
+                                luồng hay không. Mỗi tiến trình con tạo ra nhiều
+                                luồng (threads). Số lượng luồng trong mỗi tiến
+                                trình con được cấu hình bởi tham số
+                                <i>`ThreadsPerChild`</i>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Lắng nghe Yêu cầu
+                        <ul class="item">
+                            <li>
+                                Tiến trình chính mở các cổng để lắng nghe các
+                                kết nối HTTP/HTTPS, thường là cổng 80 cho HTTP
+                                và cổng 443 cho HTTPS.
+                            </li>
+                            <li>
+                                Tiến trình con và các luồng trong đó cũng sẽ
+                                lắng nghe các kết nối đến từ client
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Xử lý Yêu cầu
+                        <ul class="item">
+                            <li>
+                                Khi một yêu cầu đến, một luồng trong một tiến
+                                trình con hoặc 1 tiến trình con sẽ nhận yêu cầu
+                                đó.
+                            </li>
+                            <li>
+                                Luồng (tiến trình con) này sẽ phân tích yêu cầu
+                                HTTP để xác định tài nguyên được yêu cầu, như
+                                tệp tĩnh (HTML, CSS, JS) hoặc tệp động (PHP,
+                                Perl).
+                            </li>
+                            <li>
+                                Nếu là tệp tĩnh, luồng sẽ đọc tệp từ source code
+                                và gửi lại nội dung cho client
+                            </li>
+                            <li>
+                                Nếu là tệp động, Apache sử dụng các module như
+                                mod_php để xử lý và tạo ra nội dung động, sau đó
+                                gửi kết quả về cho client.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Gửi Phản hồi
+                        <ul class="item">
+                            <li>
+                                Sau khi xử lý yêu cầu, luồng sẽ tạo phản hồi
+                                HTTP bao gồm mã trạng thái, tiêu đề, và nội
+                                dung.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Ghi Log
+                        <ul class="item">
+                            <li>
+                                Apache ghi lại thông tin về mỗi yêu cầu và phản
+                                hồi vào tệp log (access log và error log)
+                            </li>
+                            <li>
+                                Thông tin được ghi vào tệp log bao gồm địa chỉ
+                                IP của client, thời gian, phương thức yêu cầu,
+                                URL, mã trạng thái, và kích thước của phản hồi.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Quản lý Kết nối
+                        <ul class="item">
+                            <li>
+                                Sau khi gửi phản hồi, luồng có thể đóng kết nối
+                                hoặc giữ nó ở trạng thái mở (Keep-Alive) để xử
+                                lý các yêu cầu tiếp theo từ cùng một client.
+                            </li>
+                            <li>
+                                Nếu kết nối được giữ ở trạng thái mở, luồng sẽ
+                                tiếp tục chờ và xử lý các yêu cầu tiếp theo trên
+                                cùng kết nối đó.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Dọn Dẹp và Chuẩn Bị Cho Yêu Cầu Tiếp Theo
+                        <ul class="item">
+                            <li>
+                                Sau khi hoàn thành xử lý xong một yêu cầu, luồng
+                                sẽ dọn dẹp tài nguyên và chuẩn bị để xử lý các
+                                yêu cầu tiếp theo.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
                 <div class="wrap">
                     <p class="excerpt">
                         <strong>Bài viết và web tham khảo :</strong>
@@ -428,28 +592,58 @@
                 <div class="row">
                     <p class="Logo">HEHEBOIZ</p>
                     <div>
-                        <p class="contact">Người làm web và nội dung: </p>
+                        <p class="contact">Người làm web và nội dung:</p>
                         <div class="social">
-                            <a class="social-link" href="https://www.facebook.com/profile.php?id=100004177187020"><img src="assets/img/facebook.svg" alt="facebook" /></a>
-                            <a class="social-link" href="https://github.com/Hehe-Boiz"><img src="assets/img/icons8-github.svg" alt="github" /></a>
-                            <a class="social-link" href="https://www.instagram.com/minh_nhut155/"><img src="assets/img/instagram.svg" alt="ins" /></a>
+                            <a
+                                class="social-link"
+                                href="https://www.facebook.com/profile.php?id=100004177187020"
+                                ><img
+                                    src="assets/img/facebook.svg"
+                                    alt="facebook"
+                            /></a>
+                            <a
+                                class="social-link"
+                                href="https://github.com/Hehe-Boiz"
+                                ><img
+                                    src="assets/img/icons8-github.svg"
+                                    alt="github"
+                            /></a>
+                            <a
+                                class="social-link"
+                                href="https://www.instagram.com/minh_nhut155/"
+                                ><img src="assets/img/instagram.svg" alt="ins"
+                            /></a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <p class="Logo">BATAN</p>
-                    <div >
-                        <p class="contact">Người thực hiện nội dung: </p>
+                    <div>
+                        <p class="contact">Người thực hiện nội dung:</p>
                         <div class="social">
-                            <a class="social-link" href="https://www.facebook.com/profile.php?id=100005231869007"><img src="assets/img/facebook.svg" alt="facebook" /></a>
-                            <a class="social-link" href="https://github.com/BaTannnn"><img src="assets/img/icons8-github.svg" alt="github" /></a>
-                            <a class="social-link" href=""><img src="assets/img/instagram.svg" alt="ins" /></a>
+                            <a
+                                class="social-link"
+                                href="https://www.facebook.com/profile.php?id=100005231869007"
+                                ><img
+                                    src="assets/img/facebook.svg"
+                                    alt="facebook"
+                            /></a>
+                            <a
+                                class="social-link"
+                                href="https://github.com/BaTannnn"
+                                ><img
+                                    src="assets/img/icons8-github.svg"
+                                    alt="github"
+                            /></a>
+                            <a class="social-link" href=""
+                                ><img src="assets/img/instagram.svg" alt="ins"
+                            /></a>
                         </div>
                     </div>
                 </div>
                 <p class="banquyen">
-                    <strong> Nội dung được thực hiện bởi:</strong> Minh Nhựt
-                    và Bá Tân ©
+                    <strong> Nội dung được thực hiện bởi:</strong> Minh Nhựt và
+                    Bá Tân ©
                 </p>
             </div>
         </footer>

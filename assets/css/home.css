@@ -168,3 +168,7 @@ main {
     color: #fff;
     transform: translateX(-50%);
 }
+
+.banquyen strong {
+    font-weight: 600;
+}
