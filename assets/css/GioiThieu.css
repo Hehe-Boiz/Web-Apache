@@ -20,7 +20,7 @@ main .steps-out > li {
 
 main .steps-out > li::before {
     position: absolute;
-    top: -1.3%;
+    top: -1.5%;
     left: -4%;
     content: counter(item) ".";
     font-weight: bold;
