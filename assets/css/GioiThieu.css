@@ -1,53 +1,5 @@
 /* ========= Main ========== */
 
-main .steps,
-main .item,
-main .steps-out {
-    margin-top: 15px;
-    padding-left: 35px;
-}
-
-main .steps,
-main .steps-out {
-    counter-reset: item;
-}
-
-main .steps > li,
-main .steps-out > li {
-    position: relative;
-    counter-increment: item;
-}
-
-main .steps-out > li::before {
-    position: absolute;
-    top: -1.5%;
-    left: -4%;
-    content: counter(item) ".";
-    font-weight: bold;
-    font-size: 1.9rem;
-}
-
-main .steps > li::before {
-    position: absolute;
-    left: -3%;
-    content: counter(item) ".";
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-main .item {
-    list-style-type: disc;
-}
-
-main p,
-main .steps li,
-main .item li {
-    color: rgb(10 10 12);
-    /* color: rgb(66, 66, 70); */
-    font-weight: 400;
-    letter-spacing: 0.03rem;
-}
-
 main .webserver {
     display: flex;
     flex-direction: column;

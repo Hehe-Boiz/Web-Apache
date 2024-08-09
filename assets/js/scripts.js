@@ -56,3 +56,26 @@ window.addEventListener("scroll", function () {
         sidebarShown = false;
     }
 });
+
+// nút copy
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Áp dụng Prism highlighting
+    Prism.highlightAll();
+  
+    // Thêm chức năng copy
+    document.querySelectorAll('.copy-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const codeBlock = button.closest('.code-block');
+        const code = codeBlock.querySelector('code').textContent;
+        
+        navigator.clipboard.writeText(code).then(() => {
+          button.textContent = 'Copied!';
+          setTimeout(() => {
+            button.textContent = 'Copy';
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy: ', err);
+        });
+      });
+    });
+  });

@@ -94,9 +94,8 @@
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="assets/fonts/Aerospace.css">
-        <link rel="stylesheet" href="assets/fonts/Vergilia.css">
-
+        <link rel="stylesheet" href="assets/fonts/Aerospace.css" />
+        <link rel="stylesheet" href="assets/fonts/Vergilia.css" />
 
         <!-- Reset CSS -->
         <link rel="stylesheet" href="assets/css/reset.css" />
@@ -104,6 +103,12 @@
         <!-- Styles -->
         <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" href="assets/css/GioiThieu.css" />
+
+        <!-- Embed JS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+        />
 
         <title>Hướng dẫn Apache</title>
     </head>
@@ -129,7 +134,514 @@
             </div>
         </header>
         <main>
+            <aside class="sidebar">
+                <p class="desc">Nội dung</p>
+                <ul class="list">
+                    <li>
+                        <a href="#web-server">Web Server</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#web-server-la-gi">Web Server là gì</a>
+                            </li>
+                            <li>
+                                <a href="#web-server-hoat-dong"
+                                    >Web Server hoạt động như thế nào</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Apache">Apache</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#history-dac-diem"
+                                    >Lịch sử và đặc điểm của Apache</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#uu-diem-va-nhuoc-diem"
+                                    >Ưu điểm và nhược điểm của Apache</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#apache-hoat-dong"
+                                    >Cách Apache hoạt động</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
             <div class="content">
+                <h1 class="title">Chức năng và dịch vụ</h1>
+                <ul class="list content-list">
+                    <li>
+                        <a href="#!">Các chức năng của Apache</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#!">Virtual Hosting</a>
+                            </li>
+                            <li>
+                                <a href="#!">Modular Architecture</a>
+                            </li>
+                            <li><a href="#!">Security Features</a></li>
+                            <li><a href="#!">Performance Optimization</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Apache">Apache</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#history-dac-diem"
+                                    >Lịch sử và đặc điểm của Apache</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#uu-diem-va-nhuoc-diem"
+                                    >Ưu điểm và nhược điểm của Apache</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#apache-hoat-dong"
+                                    >Cách Apache hoạt động</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 id="" class="sub-title">Các chức năng của Apache</h2>
+                <h3 id="" class="content-title">Virtual Hosting</h3>
+                <p>
+                    Một trong những tính năng mạnh mẽ của Apache là hỗ trợ
+                    Virtual Hosting, cho phép bạn lưu trữ nhiều website khác
+                    nhau trên cùng một máy chủ vật lý. Có hai loại virtual
+                    hosting mà Apache hỗ trợ:
+                </p>
+                <ul class="item">
+                    <li>
+                        <b>Name-based Virtual Hosting:</b> Cho phép nhiều tên
+                        miền có thể cùng chia sẻ một địa chỉ IP duy nhất. Apache
+                        sẽ quyết định nội dung nào được gửi đi dựa trên tên miền
+                        mà người dùng yêu cầu.
+                    </li>
+                    <li>
+                        <b>IP-based Virtual Hosting:</b> Mỗi tên miền được gắn
+                        với một địa chỉ IP riêng biệt. Loại này thích hợp khi
+                        bạn cần SSL riêng biệt cho từng tên miền. Với Virtual
+                        Hosting, bạn có thể tối ưu hóa việc sử dụng tài nguyên
+                        máy chủ, giảm chi phí và quản lý nhiều website một cách
+                        dễ dàng.
+                    </li>
+                </ul>
+                <h3 id="" class="content-title">Modular Architecture</h3>
+                <p>
+                    Nó được thiết kế theo kiểu modular, là chức năng của nó có
+                    thể mở rộng thông qua các module. Ban đầu, Apache chỉ cung
+                    cấp các tính năng cơ bản, nhưng bạn có thể dễ dàng bổ sung
+                    các tính năng nâng cao bằng cách cài đặt các module bổ sung.
+                    Một số module phổ biến bao gồm:
+                </p>
+                <ul class="item">
+                    <li>
+                        <b>mod_rewrite:</b> Cho phép bạn viết lại URL để tạo các
+                        liên kết thân thiện với SEO hoặc thực hiện các chuyển
+                        hướng phức tạp.
+                    </li>
+                    <li>
+                        <b>mod_ssl:</b> Kích hoạt giao thức SSL/TLS để mã hóa dữ
+                        liệu truyền giữa máy chủ và người dùng, tăng cường bảo
+                        mật cho website.
+                    </li>
+                    <li>
+                        <b>mod_proxy:</b> Cung cấp khả năng chuyển tiếp yêu cầu
+                        đến các máy chủ khác, hữu ích cho việc cân bằng tải hoặc
+                        ẩn máy chủ nội bộ.
+                    </li>
+                </ul>
+                <h3 id="" class="content-title">Security Features</h3>
+                <p>
+                    Apache còn đi kèm với nhiều tính năng bảo mật mạnh mẽ để bảo
+                    vệ website của bạn khỏi các mối đe dọa. Một số tính năng bảo
+                    mật nổi bật bao gồm:
+                </p>
+                <ul class="item">
+                    <li>
+                        <b>SSL/TLS:</b> Với module mod_ssl, Apache hỗ trợ việc
+                        mã hóa dữ liệu qua giao thức SSL/TLS, đảm bảo rằng thông
+                        tin nhạy cảm như mật khẩu hoặc thông tin thẻ tín dụng
+                        được bảo vệ khỏi việc bị đánh cắp.
+                    </li>
+                    <li>
+                        <b>Kiểm soát truy cập:</b> Apache cho phép quản trị viên
+                        đặt ra các quy tắc kiểm soát truy cập, giới hạn người
+                        dùng hoặc nhóm người dùng nào có thể truy cập vào những
+                        phần cụ thể của website.
+                    </li>
+                    <li>
+                        <b>Xác thực người dùng:</b> Apache hỗ trợ nhiều phương
+                        thức xác thực, bao gồm Basic Authentication và Digest
+                        Authentication, giúp bạn bảo vệ các trang yêu cầu đăng
+                        nhập.
+                    </li>
+                </ul>
+                <h3 id="" class="content-title">Performance Optimization</h3>
+                <p>
+                    Apache cung cấp nhiều tùy chọn để tối ưu hóa hiệu suất, giúp
+                    trang web của bạn hoạt động mượt mà ngay cả khi có lượng
+                    truy cập lớn. Một số tùy chọn tối ưu hóa hiệu suất bao gồm:
+                </p>
+                <ul class="item">
+                    <li>
+                        <b>Caching:</b> Sử dụng các module như
+                        <b>mod_cache</b> để lưu trữ các phiên bản đã xử lý của
+                        trang web, giúp giảm thời gian tải trang cho người dùng.
+                    </li>
+                    <li>
+                        <b>Load Balancing:</b> Với <b>mod_proxy_balancer</b>,
+                        Apache có thể phân phối tải giữa nhiều máy chủ backend,
+                        đảm bảo rằng không có máy chủ nào bị quá tải.
+                    </li>
+                    <li>
+                        <b>Multi-Processing Modules (MPM):</b> Apache cung cấp
+                        nhiều mô-đun xử lý song song (như
+                        <b>mpm_prefork</b> hoặc <b>mpm_worker</b>) để xử lý
+                        nhiều yêu cầu cùng lúc, tối ưu hóa việc sử dụng tài
+                        nguyên hệ thống và cải thiện tốc độ phản hồi.
+                    </li>
+                </ul>
+                <p>
+                    Tuy có nhiều công nghệ như vậy để cải thiện đáng kể hiệu
+                    suất của Apache nhưng việc tối ưu hóa hoàn toàn không thể
+                    nào. Nó vẫn sẽ gặp những nhược điểm là chậm khi lưu lượng
+                    truy cập quá lớn.
+                </p>
+                <h2 class="sub-title">Dịch vụ Kèm Theo</h2>
+                <p>
+                    Apache không chỉ là một máy chủ web mạnh mẽ mà còn cung cấp
+                    một loạt các dịch vụ bổ sung giúp cải thiện bảo mật, hiệu
+                    suất, và khả năng quản lý của website. Dưới đây là một số
+                    dịch vụ quan trọng mà Apache cung cấp:
+                </p>
+                <h3 class="content-title">SSL/TLS Support</h3>
+                <p>
+                    Bảo mật là một yếu tố không thể thiếu đối với bất kỳ website
+                    nào, và SSL/TLS là giải pháp hàng đầu để bảo vệ dữ liệu
+                    truyền giữa máy chủ và người dùng. Apache hỗ trợ SSL/TLS
+                    thông qua module mod_ssl, giúp mã hóa dữ liệu và bảo vệ
+                    thông tin nhạy cảm như mật khẩu, số thẻ tín dụng, và các dữ
+                    liệu cá nhân khác.
+                </p>
+                <p class="subject">Cấu hình cơ bản SSL/TLS:</p>
+                <ol class="steps">
+                    <li>
+                        <b>Cài đặt mod_ssl:</b> Đảm bảo rằng module mod_ssl đã
+                        được cài đặt và kích hoạt trên máy chủ Apache của bạn.
+                    </li>
+                    <li>
+                        <b>Tạo hoặc mua chứng chỉ SSL:</b> Bạn có thể tạo chứng
+                        chỉ tự ký (self-signed) cho mục đích phát triển hoặc mua
+                        chứng chỉ từ một nhà cung cấp uy tín cho môi trường sản
+                        xuất.
+                    </li>
+                    <li>
+                        <b>Cấu hình Apache để sử dụng SSL/TLS:</b> Cập nhật tập
+                        tin cấu hình Apache (thường là httpd.conf hoặc ssl.conf)
+                        để kích hoạt SSL/TLS cho website của bạn, bằng cách thêm
+                        các dòng lệnh như:
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-apacheconf">&lt;VirtualHost *:443&gt;
+    ServerName www.yoursite.com
+    DocumentRoot &quot;/path/to/your/site&quot;
+    SSLEngine on
+    SSLCertificateFile &quot;/path/to/your/certificate.crt&quot;
+    SSLCertificateKeyFile &quot;/path/to/your/private.key&quot;
+ &lt;/VirtualHost&gt;</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <b>Khởi động lại Apache:</b> Sau khi cấu hình, khởi động
+                        lại Apache để các thay đổi có hiệu lực.
+                    </li>
+                </ol>
+                <h3 class="content-title">Load Balancing</h3>
+                <p>
+                    Để đảm bảo hiệu suất và tính sẵn sàng của các ứng dụng web
+                    lớn, Load Balancing là một dịch vụ quan trọng. Apache hỗ trợ
+                    tính năng cân bằng tải thông qua module mod_proxy_balancer.
+                    Load balancing phân phối các yêu cầu từ người dùng đến nhiều
+                    máy chủ backend, giúp giảm tải cho từng máy chủ và tăng
+                    cường khả năng chịu đựng của hệ thống.
+                </p>
+                <p class="subject">Cách thiết lập Load Balancing:</p>
+                <ol class="steps">
+                    <li>
+                        Kích hoạt module mod_proxy và mod_proxy_balancer: Đảm
+                        bảo rằng các module này đã được kích hoạt trong tập tin
+                        cấu hình của Apache.
+                    </li>
+                    <li>
+                        Cấu hình các máy chủ backend: Chỉ định các máy chủ
+                        backend (các máy chủ sẽ xử lý yêu cầu) trong tập tin cấu
+                        hình của Apache.
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-apacheconf">&lt;Proxy balancer://mycluster&gt;
+    BalancerMember http://backend1.example.com
+    BalancerMember http://backend2.example.com
+ &lt;/Proxy&gt;
+ 
+ &lt;VirtualHost *:80&gt;
+    ProxyPass / balancer://mycluster/
+    ProxyPassReverse / balancer://mycluster/
+ &lt;/VirtualHost&gt;</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        Khởi động lại Apache: Khởi động lại Apache để áp dụng
+                        các thiết lập mới.
+                    </li>
+                </ol>
+                <h3 class="content-title">URL Rewriting (mod_rewrite)</h3>
+                <p>
+                    <b>URL Rewriting</b> là một kỹ thuật quan trọng giúp chuyển
+                    hướng URL và tạo ra các URL thân thiện với SEO. Module
+                    <b>mod_rewrite</b>
+                    của Apache cho phép bạn thay đổi URL được hiển thị trên
+                    trình duyệt mà không cần thay đổi cấu trúc của các tập tin
+                    trên máy chủ.
+                </p>
+                <p class="subject">Cách thiết lập URL Rewriting:</p>
+                <ol class="steps">
+                    <li>
+                        Kích hoạt mod_rewrite: Đảm bảo rằng module mod_rewrite
+                        đã được kích hoạt.
+                    </li>
+                    <li>
+                        <b>Tạo tập tin</b> <b><i>`.htaccess`</i></b
+                        >: Bạn có thể tạo hoặc chỉnh sửa tập tin .htaccess trong
+                        thư mục gốc của website để thêm các quy tắc rewrite.
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-apacheconf">RewriteEngine On
+RewriteRule ^oldpage\.html$ /newpage.html [R=301,L]
+RewriteRule ^product/([0-9]+)$ /product-info.php?id=$1 [L]
+
+&lt;VirtualHost *:80&gt;
+    ProxyPass / balancer://mycluster/
+    ProxyPassReverse / balancer://mycluster/
+&lt;/VirtualHost&gt;</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <b>Kiểm tra lại:</b> Đảm bảo các quy tắc rewrite hoạt
+                        động đúng bằng cách truy cập các URL tương ứng.
+                    </li>
+                </ol>
+                <h3 class="content-title">Logging and Monitoring</h3>
+                <p>
+                    Để quản lý và giám sát hiệu suất cũng như bảo mật của hệ
+                    thống, Apache cung cấp các công cụ <b>Logging</b> và
+                    <b>Monitoring</b>
+                    mạnh mẽ.
+                </p>
+                <p>
+                    <b>Logging:</b> Apache ghi lại các hoạt động của server vào
+                    các tập tin log như <b><i>`access.log`</i></b> và
+                    <b><i>`error.log`</i></b
+                    >, giúp quản trị viên theo dõi các truy cập và phát hiện các
+                    lỗi hoặc hoạt động bất thường.
+                </p>
+                <ul class="item">
+                    <li>
+                        <b>Access Logs:</b> Ghi lại tất cả các yêu cầu đến máy
+                        chủ, bao gồm thông tin như IP của người truy cập, thời
+                        gian truy cập, và tài nguyên được yêu cầu.
+                    </li>
+                    <li>
+                        <b>Error Logs:</b> Ghi lại các lỗi xảy ra trên máy chủ,
+                        giúp bạn khắc phục sự cố.
+                    </li>
+                </ul>
+                <p>
+                    <b>Monitoring:</b> Apache có thể tích hợp với nhiều công cụ
+                    giám sát như Nagios, Zabbix, hoặc các công cụ khác để theo
+                    dõi tình trạng hoạt động của máy chủ theo thời gian thực.
+                    Các công cụ này giúp bạn nhận diện các vấn đề về hiệu suất,
+                    phân tích lưu lượng truy cập, và đảm bảo máy chủ hoạt động
+                    ổn định.
+                </p>
+                <h3 class="content-title">Custom Error Pages</h3>
+                <p>
+                    Error Pages tùy chỉnh giúp bạn cải thiện trải nghiệm người
+                    dùng khi xảy ra sự cố, bằng cách hiển thị các thông báo lỗi
+                    dễ hiểu và phù hợp với thiết kế chung của website.
+                </p>
+                <p class="sub-title">Cách tạo Custom Error Pages:</p>
+                <ol class="steps">
+                    <li>
+                        <b>Tạo trang lỗi tùy chỉnh:</b> Tạo các trang HTML cho
+                        các mã lỗi phổ biến như <b><i>`404 Not Found`</i></b
+                        >, <b><i>`500 Internal Server`</i></b>
+                        Error, v.v.
+                    </li>
+                    <li>
+                        <b>Cấu hình Apache để sử dụng trang lỗi tùy chỉnh:</b>
+                        Thêm các dòng lệnh sau vào tập tin cấu hình của Apache
+                        hoặc <b><i>`.htaccess`</i></b> để chỉ định trang lỗi tùy
+                        chỉnh.
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-apacheconf">ErrorDocument 404 /errors/404.html
+ErrorDocument 500 /errors/500.html</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <b>Kiểm tra lại:</b> Kiểm tra lại bằng cách truy cập vào
+                        một trang không tồn tại để đảm bảo rằng trang lỗi tùy
+                        chỉnh hoạt động như mong muốn.
+                    </li>
+                </ol>
+                <h2 class="sub-title">Các Tính Năng Mở Rộng</h2>
+                <p>
+                    Như trang trước đã nêu Apache là một nền tảng linh hoạt có
+                    khả năng tích hợp với nhiều dịch vụ và công nghệ khác, giúp
+                    mở rộng chức năng và cải thiện hiệu quả quản lý. Dưới đây là
+                    các tính năng mở rộng quan trọng của Apache:
+                </p>
+                <h3 class="content-title">Integration with Other Services</h3>
+                <p>
+                    Apache có khả năng tích hợp mạnh mẽ với các dịch vụ và công
+                    nghệ khác, giúp bạn xây dựng các ứng dụng web phức tạp và
+                    linh hoạt.
+                </p>
+                <ul class="item">
+                    <li>
+                        <b>PHP:</b> Apache thường được kết hợp với PHP để xử lý
+                        các trang web động. Bằng cách sử dụng module
+                        <b>mod_php</b> hoặc thông qua <b>FastCGI</b> (với
+                        <b>mod_fcgid</b>), Apache có thể chạy các tập lệnh PHP,
+                        cho phép bạn tạo ra các ứng dụng web linh hoạt và tương
+                        tác.
+                    </li>
+                    <li>
+                        <b>MySQL:</b> Đối với các ứng dụng web cần cơ sở dữ
+                        liệu, Apache có thể tích hợp dễ dàng với
+                        <b>MySQL</b> thông qua PHP hoặc các ngôn ngữ lập trình
+                        khác. Sự kết hợp giữa Apache, PHP, và MySQL thường được
+                        gọi là <b>LAMP stack</b>
+                        (Linux, Apache, MySQL, PHP/Perl/Python).
+                    </li>
+                    <li>
+                        <b>CMS như WordPress:</b> Apache cũng là nền tảng lý
+                        tưởng để triển khai các hệ thống quản lý nội dung (CMS)
+                        như <b>WordPress</b>, <b>Joomla</b>, và <b>Drupal</b>.
+                        Apache hỗ trợ các yêu cầu của những CMS này, từ cấu hình
+                        URL thân thiện đến việc quản lý các tài nguyên động và
+                        tĩnh.
+                    </li>
+                </ul>
+                <h3 class="content-title">Automation and Scripting</h3>
+                <p>
+                    Quản lý và triển khai cấu hình Apache có thể trở nên hiệu
+                    quả hơn với tự động hóa và scripting. Điều này đặc biệt quan
+                    trọng trong các môi trường phức tạp hoặc khi cần phải quản
+                    lý nhiều máy chủ.
+                </p>
+                <ul class="item">
+                    <li>
+                        <b>Bash Scripting:</b> Bạn có thể sử dụng các tập lệnh
+                        Bash để tự động hóa các tác vụ quản trị như khởi động
+                        lại máy chủ, sao lưu cấu hình, hoặc triển khai các thay
+                        đổi trên nhiều máy chủ.
+                        <ul class="item">
+                            <li>
+                                Ví dụ: Tạo một tập lệnh để khởi động lại Apache
+                                trên nhiều máy chủ:
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span class="language">bash</span>
+                                        <button class="copy-button">
+                                            Copy
+                                        </button>
+                                    </div>
+                                    <pre>
+<code class="language-apacheconf">#!/bin/bash
+for server in server1 server2 server3; do
+    ssh user@$server 'sudo systemctl restart apache2'
+done</code></pre>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Ansible:</b> Đối với tự động hóa ở quy mô lớn,
+                        Ansible là một công cụ mạnh mẽ cho phép bạn quản lý cấu
+                        hình và triển khai Apache trên nhiều máy chủ. Bạn có thể
+                        viết các playbook để cài đặt Apache, áp dụng các thiết
+                        lập bảo mật, và thậm chí quản lý việc cập nhật phần mềm.
+                    </li>
+                    <li>
+                        <b>Puppet/Chef:</b> Các công cụ quản lý cấu hình như
+                        Puppet và Chef cũng rất phổ biến trong việc tự động hóa
+                        việc quản lý Apache. Chúng cho phép bạn định nghĩa các
+                        trạng thái mong muốn cho máy chủ và đảm bảo rằng tất cả
+                        các máy chủ luôn tuân thủ các cấu hình đó.
+                    </li>
+                </ul>
+                <h3 class="content-title">High Availability</h3>
+                <p>
+                    Trong các hệ thống yêu cầu độ sẵn sàng cao, việc triển khai
+                    Apache trong một môi trường có tính chịu lỗi và khả năng dự
+                    phòng là rất quan trọng.
+                </p>
+                <ul class="item">
+                    <li>
+                        <b>Cluster Setup:</b> Để đảm bảo dịch vụ không bị gián
+                        đoạn ngay cả khi một hoặc nhiều máy chủ gặp sự cố, bạn
+                        có thể thiết lập một <b>Apache Cluster</b>. Các máy chủ
+                        trong cluster có thể chia sẻ tải thông qua load balancer
+                        và đảm bảo rằng nếu một máy chủ bị lỗi, các máy chủ khác
+                        sẽ tiếp tục phục vụ yêu cầu.
+                    </li>
+                    <li>
+                        <b>HAProxy:</b> Sử dụng <b>HAProxy</b> như một load
+                        balancer phía trước cụm máy chủ Apache là một cách hiệu
+                        quả để quản lý lưu lượng truy cập và đảm bảo rằng các
+                        yêu cầu luôn được phục vụ ngay cả trong trường hợp có sự
+                        cố.
+                    </li>
+                    <li>
+                        <b>Failover Configuration:</b> Apache có thể được cấu
+                        hình để chuyển đổi tự động sang các máy chủ backup nếu
+                        máy chủ chính gặp sự cố. Điều này giúp đảm bảo rằng dịch
+                        vụ luôn hoạt động liên tục mà không gặp thời gian ngừng
+                        dịch vụ đáng kể.
+                    </li>
+                    <li>
+                        <b>Database Replication:</b> Khi tích hợp Apache với các
+                        cơ sở dữ liệu như MySQL, việc sử dụng
+                        <b>Replication</b> hoặc <b>Cluster</b>
+                        của MySQL có thể giúp đảm bảo rằng dữ liệu luôn có sẵn
+                        ngay cả khi một máy chủ cơ sở dữ liệu gặp sự cố.
+                    </li>
+                </ul>
             </div>
         </main>
         <footer>
@@ -137,30 +649,60 @@
                 <div class="row">
                     <p class="Logo">HEHEBOIZ</p>
                     <div>
-                        <p class="contact">Người làm web và nội dung: </p>
+                        <p class="contact">Người làm web và nội dung:</p>
                         <div class="social">
-                            <a class="social-link" href="https://www.facebook.com/profile.php?id=100004177187020"><img src="assets/img/facebook.svg" alt="facebook" /></a>
-                            <a class="social-link" href="https://github.com/Hehe-Boiz"><img src="assets/img/icons8-github.svg" alt="github" /></a>
-                            <a class="social-link" href="https://www.instagram.com/minh_nhut155/"><img src="assets/img/instagram.svg" alt="ins" /></a>
+                            <a
+                                class="social-link"
+                                href="https://www.facebook.com/profile.php?id=100004177187020"
+                                ><img
+                                    src="assets/img/facebook.svg"
+                                    alt="facebook"
+                            /></a>
+                            <a
+                                class="social-link"
+                                href="https://github.com/Hehe-Boiz"
+                                ><img
+                                    src="assets/img/icons8-github.svg"
+                                    alt="github"
+                            /></a>
+                            <a
+                                class="social-link"
+                                href="https://www.instagram.com/minh_nhut155/"
+                                ><img src="assets/img/instagram.svg" alt="ins"
+                            /></a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <p class="Logo">BATAN</p>
-                    <div >
-                        <p class="contact">Người thực hiện nội dung: </p>
+                    <div>
+                        <p class="contact">Người thực hiện nội dung:</p>
                         <div class="social">
-                            <a class="social-link" href="https://www.facebook.com/profile.php?id=100005231869007"><img src="assets/img/facebook.svg" alt="facebook" /></a>
-                            <a class="social-link" href="https://github.com/BaTannnn"><img src="assets/img/icons8-github.svg" alt="github" /></a>
-                            <a class="social-link" href=""><img src="assets/img/instagram.svg" alt="ins" /></a>
+                            <a
+                                class="social-link"
+                                href="https://www.facebook.com/profile.php?id=100005231869007"
+                                ><img
+                                    src="assets/img/facebook.svg"
+                                    alt="facebook"
+                            /></a>
+                            <a
+                                class="social-link"
+                                href="https://github.com/BaTannnn"
+                                ><img
+                                    src="assets/img/icons8-github.svg"
+                                    alt="github"
+                            /></a>
                         </div>
                     </div>
                 </div>
                 <p class="banquyen">
-                    <strong> Nội dung được thực hiện bởi:</strong> Minh Nhựt
-                    và Bá Tân ©
+                    <strong> Nội dung được thực hiện bởi:</strong> Minh Nhựt và
+                    Bá Tân ©
                 </p>
             </div>
+            <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+            <script src="assets/js/scripts.js"></script>
         </footer>
     </body>
 </html>

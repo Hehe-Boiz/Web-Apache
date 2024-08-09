@@ -487,7 +487,7 @@
                             <li>
                                 Khi Apache khởi động nó tạo ra một tiến cha được
                                 gọi là tiến trình chính (parent process) dựa
-                                trên các cấu hình trong tệp <i>`httpd.conf`</i>.
+                                trên các cấu hình trong tệp <b><i>`httpd.conf`</i></b>.
                             </li>
                             <li>
                                 Tiến trình chính có nhiệm vụ đọc cấu hình và
@@ -501,17 +501,17 @@
                             <li>
                                 Tiến trình cha sẽ tọa ra một số tiến trình con.
                                 Số lượng này được xác định bởi các thông số cấu
-                                hình như <i>`StartServers`</i>,
-                                <i>`MinSpareThreads`</i>,
-                                <i>`MaxSpareThreads`</i>, và
-                                <i>`MaxRequestWorkers`</i>.
+                                hình như <b><i>`StartServers`</i></b>,
+                                <b><i>`MinSpareThreads`</i></b>,
+                                <b><i>`MaxSpareThreads`</i></b>, và
+                                <b><i>`MaxRequestWorkers`</i></b>.
                             </li>
                             <li>
                                 Tùy vào cấu hình MPM mà tiến trình có tạo ra
                                 luồng hay không. Mỗi tiến trình con tạo ra nhiều
                                 luồng (threads). Số lượng luồng trong mỗi tiến
                                 trình con được cấu hình bởi tham số
-                                <i>`ThreadsPerChild`</i>
+                                <b><i>`ThreadsPerChild`</i></b>.
                             </li>
                         </ul>
                     </li>

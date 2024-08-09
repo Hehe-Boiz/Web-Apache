@@ -101,7 +101,7 @@ main .content {
     max-width: 1100px;
     width: 55%;
     min-width: 850px;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.7;
 }
 main p,
@@ -118,8 +118,8 @@ main li {
 
 .title {
     margin-top: 35px;
-    font-size: 3.7rem;
-    font-weight: 700;
+    font-size: 3.5rem;
+    font-weight: 600;
 }
 
 main .sidebar .desc {
@@ -154,6 +154,8 @@ main .sidebar {
     padding-left: 50px;
     font-size: 1.1rem;
     /* overflow: auto; */
+    transform: translateX(-100%);
+    opacity: 0;
 }
 
 main .sidebar li {
@@ -260,8 +262,60 @@ main .subject {
     font-size: 1.6rem;
 }
 
+main .steps,
+main .item,
+main .steps-out {
+    margin-top: 15px;
+    padding-left: 35px;
+}
+
+main .steps,
+main .steps-out {
+    counter-reset: item;
+}
+
+main .steps > li,
+main .steps-out > li {
+    position: relative;
+    counter-increment: item;
+}
+
+main .steps-out > li::before {
+    position: absolute;
+    top: -1.5%;
+    left: -4%;
+    content: counter(item) ".";
+    font-weight: bold;
+    font-size: 1.9rem;
+}
+
+main .steps > li::before {
+    position: absolute;
+    left: -3%;
+    content: counter(item) ".";
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+main .item {
+    list-style-type: disc;
+}
+
+main p,
+main .steps li,
+main .item li {
+    color: rgb(10 10 12);
+    /* color: rgb(66, 66, 70); */
+    font-weight: 400;
+    letter-spacing: 0.03rem;
+}
+
 main b {
     font-weight: 600;
+}
+
+main i {
+    font-style: italic;
 }
 /* =========== Footer =========== */
 
@@ -326,4 +380,55 @@ footer .banquyen {
 
 footer .banquyen strong {
     font-weight: 600;
+}
+/* ========== Termianl ========= */
+
+.code-block {
+    background-color: #282c34;
+    border-radius: 6px;
+    overflow: hidden;
+    font-family: "Consolas", "Monaco", monospace;
+    margin: 30px 0;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #21252b;
+    color: #abb2bf;
+}
+
+.language {
+    font-size: 14px;
+    color: #e3e3e3;
+}
+
+.copy-button {
+    background-color: transparent;
+    border: 1px solid #abb2bf;
+    color: #abb2bf;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.copy-button:hover {
+    background-color: rgba(171, 178, 191, 0.1);
+}
+
+pre,
+code {
+    background-color: rgb(40, 44, 52) !important;
+}
+
+pre {
+    margin: 0;
+    padding: 16px;
+}
+
+code {
+    font-family: inherit;
 }
