@@ -9,6 +9,11 @@ a {
     text-decoration: none;
 }
 
+body,
+html {
+    scroll-behavior: smooth;
+}
+
 .content {
     /* nếu bình thường mà độ rộng lớn hơn 1110px thì hiện bth */
     width: 1110px;
@@ -100,7 +105,7 @@ main * {
 main .content {
     max-width: 1100px;
     width: 55%;
-    min-width: 850px;
+    min-width: 750px;
     font-size: 1.1rem;
     line-height: 1.7;
 }
@@ -159,7 +164,7 @@ main .sidebar {
 }
 
 main .sidebar li {
-    margin-top: 20px;
+    margin-top: 15px;
     line-height: 1.5;
 }
 
@@ -317,6 +322,44 @@ main b {
 main i {
     font-style: italic;
 }
+.wrap {
+    padding-left: 30px;
+    position: relative;
+    margin-top: 70px;
+}
+
+.wrap::before {
+    position: absolute;
+    left: 3%;
+    top: -5%;
+    content: "";
+    width: 300px;
+    height: 4px;
+    background-color: black;
+    border-radius: 999px;
+}
+
+.excerpt strong {
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.links {
+    padding-left: 40px;
+    list-style-type: disc;
+    text-decoration: underline;
+    color: #e4271b;
+}
+
+.links li {
+    color: #e4271b;
+}
+
+.links li::marker {
+    color: black;
+}
+
 /* =========== Footer =========== */
 
 footer {
@@ -431,4 +474,25 @@ pre {
 
 code {
     font-family: inherit;
+}
+
+/* ======= scroll ======== */
+
+::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.2);
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.scrolled-to {
+    scroll-margin-top: 70px; /* Điều chỉnh giá trị này tùy theo chiều cao của navbar */
 }

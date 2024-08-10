@@ -23,39 +23,4 @@ main .Active-webserver img{
     max-width: 700px;
     width: 70%;
 }
-.wrap {
-    padding-left: 30px;
-    position: relative;
-    margin-top: 70px;
-}
-.wrap::before {
-    position: absolute;
-    left: 3%;
-    top: -5%;
-    content: "";
-    width: 300px;
-    height: 4px;
-    background-color: black;
-    border-radius: 999px;
-}
 
-.excerpt strong {
-    font-style: italic;
-    font-weight: 600;
-    font-size: 1.2rem;
-}
-
-.links {
-    padding-left: 40px;
-    list-style-type: disc;
-    text-decoration: underline;
-    color: #e4271b;
-}
-
-.links li {
-    color: #e4271b;
-}
-
-.links li::marker {
-    color: black;
-}

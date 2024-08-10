@@ -11,7 +11,7 @@ window.addEventListener("scroll", function () {
     contents.forEach((content) => {
         const rect = content.getBoundingClientRect();
         // Math.abs là trị tuyệt đối
-        // rect.top: cạnh trên cùng của phần tuẻ đến cạnh trên của cửa sổ trình duyệt
+        // rect.top: cạnh trên cùng của phần tử đến cạnh trên của cửa sổ trình duyệt
         const distance = Math.abs(rect.top);
         // kiếm tiêu đề có khoảng cách gần đỉnh trình duyệt nhất
         if (distance < closestDistance) {
@@ -26,6 +26,12 @@ window.addEventListener("scroll", function () {
         sidebarLinks.forEach((link) => {
             if (link === currentActiveLink) {
                 link.classList.add("active");
+                // Tự động cuộn sidebar đến mục đang active
+                currentActiveLink.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'start'
+                });
             } else {
                 link.classList.remove("active");
             }
@@ -33,29 +39,42 @@ window.addEventListener("scroll", function () {
     }
 });
 
-// ẩn sidebar
+// // ẩn sidebar
 const contentList = document.querySelector(".content-list");
 const sidebar = document.querySelector(".sidebar");
+const header = document.querySelector("header");
 let sidebarShown = false;
 
-window.addEventListener("scroll", function () {
-    // offsetTop: khoảng cách cạnh trên cùng của một phần tử so với cạnh trên cùng của phần tử chứa nó (body)
-    const contentListBottom = contentList.offsetTop + contentList.offsetHeight;
+// để có thể bắt một lúc 2 sự kiện
+function updateSidebar() {
+    // getBoundingClientRect().top: khoảng cách từ đỉnh của phần tử đến đỉnh của viewport
+    const contentListBottom = contentList.getBoundingClientRect().top + window.scrollY + contentList.offsetHeight;
     // pageYOffset thay bằng scrollY
-    if (window.scrollY > contentListBottom && !sidebarShown) {
+    console.log(`contentList.getBoundingClientRect().top ${contentList.getBoundingClientRect().top}`);
+    console.log(`window.scrollY ${window.scrollY}`);
+    console.log(`contentList.offsetHeight ${contentList.offsetHeight}`);
+    console.log(`contentListBottom ${contentListBottom}`);
+    if (window.scrollY + header.offsetHeight > contentListBottom && !sidebarShown) {
         // Hiện dần ra
         sidebar.style.transform = 'translateX(0)';
         sidebar.style.opacity = '1';
         sidebar.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease-in';
         sidebarShown = true;
-    } else if (window.scrollY <= contentListBottom && sidebarShown) {
+    } else if (window.scrollY + header.offsetHeight <= contentListBottom && sidebarShown) {
         // Di chuyển ra khi ẩn
         sidebar.style.transform = 'translateX(-100%)';
         sidebar.style.opacity = '0';
         sidebar.style.transition = 'transform 0.5s ease-in, opacity 0.5s ease-out';
         sidebarShown = false;
     }
-});
+};
+
+// Gọi updateSidebar khi cuộn
+window.addEventListener("scroll", updateSidebar);
+
+// Gọi updateSidebar khi thay đổi kích thước cửa sổ
+window.addEventListener("resize", updateSidebar);
+
 
 // nút copy
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -79,3 +98,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
       });
     });
   });
+
+//Tránh khi ấn a cho bị nav che
+document.querySelectorAll('.list li a').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+    const navbarHeight = document.querySelector('nav').offsetHeight;
+    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+    
+    window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+    });
+
+    // Thêm class để áp dụng scroll-margin-top
+    targetElement.classList.add('scrolled-to');
+    }
+});
+});

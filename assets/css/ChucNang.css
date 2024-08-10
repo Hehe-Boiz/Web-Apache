@@ -1,0 +1,14 @@
+/* ========= SideBar ========= */
+main .sidebar {
+    height: calc(100vh - 170px);
+    padding-right: 10px;
+    overflow-y: auto !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.waring {
+    color:rgb(203, 203, 199);
+    font-size: 0.8rem;
+    padding-left: auto;
+}

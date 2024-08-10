@@ -102,7 +102,7 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="assets/css/main.css" />
-        <link rel="stylesheet" href="assets/css/GioiThieu.css" />
+        <link rel="stylesheet" href="assets/css/ChucNang.css" />
 
         <!-- Embed JS -->
         <link
@@ -138,36 +138,48 @@
                 <p class="desc">Nội dung</p>
                 <ul class="list">
                     <li>
-                        <a href="#web-server">Web Server</a>
+                        <a href="#chuc-nang">Các chức năng của Apache</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="#web-server-la-gi">Web Server là gì</a>
+                                <a href="#vhost">Virtual Hosting</a>
                             </li>
                             <li>
-                                <a href="#web-server-hoat-dong"
-                                    >Web Server hoạt động như thế nào</a
-                                >
+                                <a href="#modu">Modular Architecture</a>
                             </li>
+                            <li><a href="#security">Security Features</a></li>
+                            <li><a href="#per">Performance Optimization</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#Apache">Apache</a>
+                        <a href="#dich-vu">Dịch vụ Kèm Theo</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="#history-dac-diem"
-                                    >Lịch sử và đặc điểm của Apache</a
+                                <a href="#ssl">SSL/TLS Support</a>
+                            </li>
+                            <li>
+                                <a href="#load">Load Balancing</a>
+                            </li>
+                            <li>
+                                <a href="#url">URL Rewriting (mod_rewrite)</a>
+                            </li>
+                            <li><a href="#log">Logging and Monitoring</a></li>
+                            <li><a href="#error">Custom Error Pages</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#tinh-nang">Các Tính Năng Mở Rộng</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#server"
+                                    >Integration with Other Services</a
                                 >
                             </li>
                             <li>
-                                <a href="#uu-diem-va-nhuoc-diem"
-                                    >Ưu điểm và nhược điểm của Apache</a
+                                <a href="#automation"
+                                    >Automation and Scripting</a
                                 >
                             </li>
-                            <li>
-                                <a href="#apache-hoat-dong"
-                                    >Cách Apache hoạt động</a
-                                >
-                            </li>
+                            <li><a href="#high">High Availability</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -176,41 +188,55 @@
                 <h1 class="title">Chức năng và dịch vụ</h1>
                 <ul class="list content-list">
                     <li>
-                        <a href="#!">Các chức năng của Apache</a>
+                        <a href="#chuc-nang">Các chức năng của Apache</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="#!">Virtual Hosting</a>
+                                <a href="#vhost">Virtual Hosting</a>
                             </li>
                             <li>
-                                <a href="#!">Modular Architecture</a>
+                                <a href="#modu">Modular Architecture</a>
                             </li>
-                            <li><a href="#!">Security Features</a></li>
-                            <li><a href="#!">Performance Optimization</a></li>
+                            <li><a href="#security">Security Features</a></li>
+                            <li><a href="#per">Performance Optimization</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#Apache">Apache</a>
+                        <a href="#dich-vu">Dịch vụ Kèm Theo</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="#history-dac-diem"
-                                    >Lịch sử và đặc điểm của Apache</a
+                                <a href="#ssl">SSL/TLS Support</a>
+                            </li>
+                            <li>
+                                <a href="#load">Load Balancing</a>
+                            </li>
+                            <li>
+                                <a href="#url">URL Rewriting (mod_rewrite)</a>
+                            </li>
+                            <li><a href="#log">Logging and Monitoring</a></li>
+                            <li><a href="#error">Custom Error Pages</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#tinh-nang">Các Tính Năng Mở Rộng</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#server"
+                                    >Integration with Other Services</a
                                 >
                             </li>
                             <li>
-                                <a href="#uu-diem-va-nhuoc-diem"
-                                    >Ưu điểm và nhược điểm của Apache</a
+                                <a href="#automation"
+                                    >Automation and Scripting</a
                                 >
                             </li>
-                            <li>
-                                <a href="#apache-hoat-dong"
-                                    >Cách Apache hoạt động</a
-                                >
-                            </li>
+                            <li><a href="#high">High Availability</a></li>
                         </ul>
                     </li>
                 </ul>
-                <h2 id="" class="sub-title">Các chức năng của Apache</h2>
-                <h3 id="" class="content-title">Virtual Hosting</h3>
+                <h2 id="chuc-nang" class="sub-title">
+                    Các chức năng của Apache
+                </h2>
+                <h3 id="vhost" class="content-title">Virtual Hosting</h3>
                 <p>
                     Một trong những tính năng mạnh mẽ của Apache là hỗ trợ
                     Virtual Hosting, cho phép bạn lưu trữ nhiều website khác
@@ -233,7 +259,7 @@
                         dễ dàng.
                     </li>
                 </ul>
-                <h3 id="" class="content-title">Modular Architecture</h3>
+                <h3 id="modu" class="content-title">Modular Architecture</h3>
                 <p>
                     Nó được thiết kế theo kiểu modular, là chức năng của nó có
                     thể mở rộng thông qua các module. Ban đầu, Apache chỉ cung
@@ -258,7 +284,7 @@
                         ẩn máy chủ nội bộ.
                     </li>
                 </ul>
-                <h3 id="" class="content-title">Security Features</h3>
+                <h3 id="security" class="content-title">Security Features</h3>
                 <p>
                     Apache còn đi kèm với nhiều tính năng bảo mật mạnh mẽ để bảo
                     vệ website của bạn khỏi các mối đe dọa. Một số tính năng bảo
@@ -284,7 +310,7 @@
                         nhập.
                     </li>
                 </ul>
-                <h3 id="" class="content-title">Performance Optimization</h3>
+                <h3 id="per" class="content-title">Performance Optimization</h3>
                 <p>
                     Apache cung cấp nhiều tùy chọn để tối ưu hóa hiệu suất, giúp
                     trang web của bạn hoạt động mượt mà ngay cả khi có lượng
@@ -315,14 +341,14 @@
                     nào. Nó vẫn sẽ gặp những nhược điểm là chậm khi lưu lượng
                     truy cập quá lớn.
                 </p>
-                <h2 class="sub-title">Dịch vụ Kèm Theo</h2>
+                <h2 id="dich-vu" class="sub-title">Dịch vụ Kèm Theo</h2>
                 <p>
                     Apache không chỉ là một máy chủ web mạnh mẽ mà còn cung cấp
                     một loạt các dịch vụ bổ sung giúp cải thiện bảo mật, hiệu
                     suất, và khả năng quản lý của website. Dưới đây là một số
                     dịch vụ quan trọng mà Apache cung cấp:
                 </p>
-                <h3 class="content-title">SSL/TLS Support</h3>
+                <h3 id="ssl" class="content-title">SSL/TLS Support</h3>
                 <p>
                     Bảo mật là một yếu tố không thể thiếu đối với bất kỳ website
                     nào, và SSL/TLS là giải pháp hàng đầu để bảo vệ dữ liệu
@@ -368,7 +394,7 @@
                         lại Apache để các thay đổi có hiệu lực.
                     </li>
                 </ol>
-                <h3 class="content-title">Load Balancing</h3>
+                <h3 id="load" class="content-title">Load Balancing</h3>
                 <p>
                     Để đảm bảo hiệu suất và tính sẵn sàng của các ứng dụng web
                     lớn, Load Balancing là một dịch vụ quan trọng. Apache hỗ trợ
@@ -410,7 +436,9 @@
                         các thiết lập mới.
                     </li>
                 </ol>
-                <h3 class="content-title">URL Rewriting (mod_rewrite)</h3>
+                <h3 id="url" class="content-title">
+                    URL Rewriting (mod_rewrite)
+                </h3>
                 <p>
                     <b>URL Rewriting</b> là một kỹ thuật quan trọng giúp chuyển
                     hướng URL và tạo ra các URL thân thiện với SEO. Module
@@ -450,7 +478,7 @@ RewriteRule ^product/([0-9]+)$ /product-info.php?id=$1 [L]
                         động đúng bằng cách truy cập các URL tương ứng.
                     </li>
                 </ol>
-                <h3 class="content-title">Logging and Monitoring</h3>
+                <h3 id="log" class="content-title">Logging and Monitoring</h3>
                 <p>
                     Để quản lý và giám sát hiệu suất cũng như bảo mật của hệ
                     thống, Apache cung cấp các công cụ <b>Logging</b> và
@@ -483,13 +511,13 @@ RewriteRule ^product/([0-9]+)$ /product-info.php?id=$1 [L]
                     phân tích lưu lượng truy cập, và đảm bảo máy chủ hoạt động
                     ổn định.
                 </p>
-                <h3 class="content-title">Custom Error Pages</h3>
+                <h3 id="error" class="content-title">Custom Error Pages</h3>
                 <p>
                     Error Pages tùy chỉnh giúp bạn cải thiện trải nghiệm người
                     dùng khi xảy ra sự cố, bằng cách hiển thị các thông báo lỗi
                     dễ hiểu và phù hợp với thiết kế chung của website.
                 </p>
-                <p class="sub-title">Cách tạo Custom Error Pages:</p>
+                <p class="subject">Cách tạo Custom Error Pages:</p>
                 <ol class="steps">
                     <li>
                         <b>Tạo trang lỗi tùy chỉnh:</b> Tạo các trang HTML cho
@@ -518,14 +546,16 @@ ErrorDocument 500 /errors/500.html</code></pre>
                         chỉnh hoạt động như mong muốn.
                     </li>
                 </ol>
-                <h2 class="sub-title">Các Tính Năng Mở Rộng</h2>
+                <h2 id="tinh-nang" class="sub-title">Các Tính Năng Mở Rộng</h2>
                 <p>
                     Như trang trước đã nêu Apache là một nền tảng linh hoạt có
                     khả năng tích hợp với nhiều dịch vụ và công nghệ khác, giúp
                     mở rộng chức năng và cải thiện hiệu quả quản lý. Dưới đây là
                     các tính năng mở rộng quan trọng của Apache:
                 </p>
-                <h3 class="content-title">Integration with Other Services</h3>
+                <h3 id="server" class="content-title">
+                    Integration with Other Services
+                </h3>
                 <p>
                     Apache có khả năng tích hợp mạnh mẽ với các dịch vụ và công
                     nghệ khác, giúp bạn xây dựng các ứng dụng web phức tạp và
@@ -557,7 +587,9 @@ ErrorDocument 500 /errors/500.html</code></pre>
                         tĩnh.
                     </li>
                 </ul>
-                <h3 class="content-title">Automation and Scripting</h3>
+                <h3 id="automation" class="content-title">
+                    Automation and Scripting
+                </h3>
                 <p>
                     Quản lý và triển khai cấu hình Apache có thể trở nên hiệu
                     quả hơn với tự động hóa và scripting. Điều này đặc biệt quan
@@ -605,7 +637,7 @@ done</code></pre>
                         các máy chủ luôn tuân thủ các cấu hình đó.
                     </li>
                 </ul>
-                <h3 class="content-title">High Availability</h3>
+                <h3 id="high" class="content-title">High Availability</h3>
                 <p>
                     Trong các hệ thống yêu cầu độ sẵn sàng cao, việc triển khai
                     Apache trong một môi trường có tính chịu lỗi và khả năng dự
@@ -642,6 +674,20 @@ done</code></pre>
                         ngay cả khi một máy chủ cơ sở dữ liệu gặp sự cố.
                     </li>
                 </ul>
+                <div class="wrap">
+                    <p class="excerpt">
+                        <strong>Bài viết và web tham khảo :</strong>
+                    </p>
+                    <ul class="links">
+                        <li>https://httpd.apache.org/</li>
+                        <li>https://gemini.google.com/</li>
+                        <li>https://chat.openai.com/</li>
+                        <li>https://claude.ai/new</li>
+                    </ul>
+                </div>
+                <p class="waring">
+                    * Đoạn code chỉ để tham khảo khuyến cáo không nên làm theo *
+                </p>
             </div>
         </main>
         <footer>
