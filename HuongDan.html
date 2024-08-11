@@ -138,53 +138,16 @@
                 <p class="desc">Nội dung</p>
                 <ul class="list">
                     <li>
-                        <a href="#web-server">Web Server</a>
+                        <a href="#guide">Hướng dẫn cơ bản</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="#web-server-la-gi">Web Server là gì</a>
+                                <a href="#caiapache">Cài đặt Apache</a>
                             </li>
                             <li>
-                                <a href="#web-server-hoat-dong"
-                                    >Web Server hoạt động như thế nào</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#Apache">Apache</a>
-                        <ul class="sub-list">
-                            <li>
-                                <a href="#history-dac-diem"
-                                    >Lịch sử và đặc điểm của Apache</a
-                                >
+                                <a href="#quanly">Quản lý cơ bản</a>
                             </li>
                             <li>
-                                <a href="#uu-diem-va-nhuoc-diem"
-                                    >Ưu điểm và nhược điểm của Apache</a
-                                >
-                            </li>
-                            <li>
-                                <a href="#apache-hoat-dong"
-                                    >Cách Apache hoạt động</a
-                                >
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </aside>
-            <div class="content">
-                <h1 class="title">Hướng dẫn</h1>
-                <ul class="list content-list">
-                    <li>
-                        <a href="#web-server">Hướng dẫn cơ bản</a>
-                        <ul class="sub-list">
-                            <li>
-                                <a href="#web-server-la-gi">Cài đặt Apache</a>
-                            </li>
-                            <li>
-                                <a href="#web-server-hoat-dong"
-                                    >Cấu hình cơ bản</a
-                                >
+                                <a href="#cau-hinh-apache">Cấu hình cơ bản</a>
                             </li>
                         </ul>
                     </li>
@@ -202,8 +165,40 @@
                         </ul>
                     </li>
                 </ul>
-                <h2 class="sub-title">Hướng dẫn cơ bản</h2>
-                <h3 class="content-title">Cài đặt Apache</h3>
+            </aside>
+            <div class="content">
+                <h1 class="title">Hướng dẫn</h1>
+                <ul class="list content-list">
+                    <li>
+                        <a href="#web-server">Hướng dẫn cơ bản</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#web-server-la-gi">Cài đặt Apache</a>
+                            </li>
+                            <li>
+                                <a href="#web-server-hoat-dong"
+                                    >Quản lý cơ bản</a
+                                >
+                            </li>
+                            <li><a href="">Cấu hình cơ bản</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Apache">Cài DNS</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#history-dac-diem">Tải Bind9</a>
+                            </li>
+                            <li>
+                                <a href="#uu-diem-va-nhuoc-diem"
+                                    >Cấu hình DNS</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 id="guide" class="sub-title">Hướng dẫn cơ bản</h2>
+                <h3 id="caiapache" class="content-title">Cài đặt Apache</h3>
                 <p>
                     Để cài đặt trên Linux bạn cần terminal lên bằng cách nhấn
                     shortcut trên màn hình hoặc <b>Ctrl+Alt+T</b>. Dưới đây là
@@ -211,9 +206,17 @@
                     của Linux.
                 </p>
                 <p><b>Yêu Cầu Hệ Thống:</b></p>
+                <ul class="item">
+                    <li>Hệ điều hành: Ubuntu 18.04 trở lên.</li>
+                    <li>
+                        Quyền truy cập root hoặc người dùng có quyền
+                        <b>sudo</b>.
+                    </li>
+                    <li>Kết nối Internet để tải các gói cần thiết.</li>
+                </ul>
                 <ol class="steps">
                     <li>
-                        Cập Nhật Hệ Thống
+                        <p class="subject">Cập Nhật Hệ Thống</p>
                         <p>
                             Trước khi cài tốt nhất nên cập nhật trước vì đôi khi
                             có những gói tài nguyên mà bạn chưa cài hay chưa cập
@@ -222,35 +225,376 @@
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="language">bash</span>
-                                <button class="copy-button">
-                                    Copy
-                                </button>
+                                <button class="copy-button">Copy</button>
                             </div>
                             <pre>
 <code class="language-shell">sudo apt update
 sudo apt upgrade</code></pre>
                         </div>
                     </li>
-                    <li>Cài Đặt Apache
-                        <p>Sau khi hệ thống được cập nhật, bạn có thể cài đặt Apache bằng lệnh sau:</p>
+                    <li>
+                        <p class="subject">Cài Đặt Apache</p>
+                        <p>
+                            Sau khi hệ thống được cập nhật, bạn có thể cài đặt
+                            Apache bằng lệnh sau:
+                        </p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="language">bash</span>
-                                <button class="copy-button">
-                                    Copy
-                                </button>
+                                <button class="copy-button">Copy</button>
                             </div>
                             <pre>
 <code class="language-shell">sudo apt install apache2
 </code></pre>
                         </div>
                     </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>
+                        <p class="subject">Cấu hình tường lửa</p>
+                        <p>
+                            Sau khi cài xong bạn hãy cấu hình lại tường lửa để
+                            có thể cho phép các truy cập từ bên ngoài vào port
+                            mặc định của web.
+                        </p>
+                        <p>
+                            Trong quá trình cài đặt, Apache đã tự đăng ký một số
+                            profile (cấu hình) ứng dụng trong UFW để cho phép
+                            hoặc chặn quyền truy cập đến Apache qua tường
+                            lửa.Bạn có thể dùng lệnh sau để xem các profile ufw
+                            hiện có:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo ufw app list
+</code></pre>
+                        </div>
+                        <p>Sau đó nó sẽ hiện ra danh sách như thế này:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">Available applications:
+    Apache
+    Apache Full
+    Apache Secure
+  </code></pre>
+                        </div>
+                        <p>Chúng ta hiện tại đang có 3 profile của Apache:</p>
+                        <ul class="item">
+                            <li>
+                                <b>Apache:</b> Chỉ mở port 80 (lưu lượng
+                                <b>không được mã hóa</b>).
+                            </li>
+                            <li>
+                                <b>Apache Full:</b> Mở port 80 và port 443 (lưu
+                                lượng được mã hóa bằng TLS/SSL).
+                            </li>
+                            <li>
+                                <b>Apache Secure:</b> Chỉ mở port 443 (được mã
+                                hóa bằng TLS/SSL).
+                            </li>
+                        </ul>
+                        <p>
+                            Ở đây chúng tôi sẽ lựa chọn là <b>"Apache Full"</b>
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo ufw allow 'Apache Full'
+</code></pre>
+                        </div>
+                        <p>Sau khi thành công bạn sẽ thấy đoạn mã như sau:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">Rules updated
+Rules updated (v6)</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Kiểm tra trạng thái của apache</p>
+                        <p>
+                            Sau khi cài đặt, bạn có thể kiểm tra xem Apache đã
+                            chạy hay chưa bằng cách:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo systemctl status apache2
+</code></pre>
+                        </div>
+                        <p>
+                            Nếu Apache đang chạy, bạn sẽ thấy một thông báo cho
+                            biết dịch vụ đang hoạt động. nó sẽ hiện giống đọan
+                            mã bên dưới.
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-sh">apache2.service - The Apache HTTP Server
+    Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor prese&gt;
+    Active: active (running) since Mon 2024-08-05 01:32:58 +07; 6 days ago
+      Docs: https://httpd.apache.org/docs/2.4/
+  Main PID: 797 (apache2)
+     Tasks: 55 (limit: 9283)
+    Memory: 7.3M
+       CPU: 4.212s
+    CGroup: /system.slice/apache2.service
+            ├─  797 /usr/sbin/apache2 -k start
+            ├─30908 /usr/sbin/apache2 -k start
+            └─30909 /usr/sbin/apache2 -k start</code></pre>
+                        </div>
+                        <p>
+                            Bên cạnh đó bạn cũng nên xác nhận lại bằng cách vào
+                            trình duyệt và gõ
+                            <span class="host">http://localhost</span> hoặc địa
+                            chỉ IP của server:
+                            <span class="host">127.0.0.1</span>. Nếu thành công
+                            nó sẽ xuất ra trang như thế này.
+                        </p>
+                        <img
+                            src="assets/img/webkq.jpg"
+                            alt="Kết quả hiển thị"
+                            class="web-hien-thi"
+                        />
+                    </li>
                 </ol>
+                <h3 id="quanly" class="content-title">Quản lý cơ bản</h3>
+                <p>
+                    Sau khi cài đặt và khởi chạy web server, bạn có thể bắt đầu
+                    tìm hiểu một số lệnh quản lý cơ bản bằng công cụ
+                    <b>systemctl</b>
+                </p>
+                <p>Chạy lệnh sau để dừng web server:</p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="language">bash</span>
+                        <button class="copy-button">Copy</button>
+                    </div>
+                    <pre>
+<code class="language-shell">sudo systemctl stop apache2</code></pre>
+                </div>
+                <p>Để khởi động server:</p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="language">bash</span>
+                        <button class="copy-button">Copy</button>
+                    </div>
+                    <pre>
+<code class="language-shell">sudo systemctl start apache2</code></pre>
+                </div>
+                <p>Để restart dịch vụ:</p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="language">bash</span>
+                        <button class="copy-button">Copy</button>
+                    </div>
+                    <pre>
+<code class="language-shell">sudo systemctl restart apache2</code></pre>
+                </div>
+                <p>
+                    Nếu bạn chỉ thực hiện các thay đổi cấu hình trên web server
+                    thì Apache có chế độ reload mà không cần ngắt kết nối bằng
+                    lệnh sau:
+                </p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="language">bash</span>
+                        <button class="copy-button">Copy</button>
+                    </div>
+                    <pre>
+<code class="language-shell">sudo systemctl reload apache2</code></pre>
+                </div>
+                <p>
+                    Theo mặc định, Apache được cấu hình để tự khởi động mỗi khi
+                    server boot. Bạn có thể tắt tính năng này bằng lệnh:
+                </p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="language">bash</span>
+                        <button class="copy-button">Copy</button>
+                    </div>
+                    <pre>
+<code class="language-shell">sudo systemctl disable apache2</code></pre>
+                </div>
+                <p>Còn khi bạn tắt và muốn bật lại có thể chạy lệnh này:</p>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="language">bash</span>
+                        <button class="copy-button">Copy</button>
+                    </div>
+                    <pre>
+<code class="language-shell">sudo systemctl enable apache2</code></pre>
+                </div>
+                <h3 id="cau-hinh-apache" class="content-title">
+                    Cấu hình cơ bản
+                </h3>
+                <p>
+                    Khi sử dụng web server Apache, bạn có thể sử dụng các
+                    virtual host (tương tự như các server block – khối server –
+                    trong Nginx) để đóng gói các chi tiết cấu hình và lưu trữ
+                    nhiều miền từ một server.
+                </p>
+                <p>
+                    Apache trên Ubuntu 20.04 đã enable sẵn một server block,
+                    được cấu hình để cung cấp tài liệu từ thư mục
+                    <b>/var/www/html</b>. Nếu chỉ host một trang thì không có
+                    vấn đề gì, nhưng đối với số lượng trang lớn thì sẽ khó quản
+                    lý. Thay vì chỉnh sửa trực tiếp <b>/var/www/html</b> thì bạn
+                    nên tạo một cấu trúc thư mục trong <b>/var/www</b> cho trang
+                    của bạn, để nguyên <b>/var/www/html</b>
+                    làm thư mục mặc định để cung cấp nếu request của client
+                    không khớp với bất kỳ trang nào.
+                </p>
+                <ol class="steps">
+                    <li>
+                        <p class="subject">
+                            Tạo thư mục chứa file, tài nguyên web cuả bạn
+                        </p>
+                        <p>
+                            Bạn hãy tạo thư mục cho trang của bạn bằng lệnh sau:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo mkdir /var/www/tênbạnmuốnđặt</code></pre>
+                        </div>
+                        <p>
+                            Sau đó bạn có thể viết file cho trang web của bạn
+                            vào thư mục này.
+                        </p>
+                        <p>
+                            Nếu bạn đã có file và muốn copy vào cũng có thể chạy
+                            bằng lệnh này và đề phòng bạn chưa có quyền truy cập
+                            đầy đủ hãy chạy thêm lệnh sudo:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo cp -r /đường/dẫn/đến/thư/mục /var/www/tênbạnmuốnđặt</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Cấu hình Virtual host</p>
+                        <p>
+                            Để Apache có thể cung cấp nội dung thì bạn cần tạo
+                            một file virtual host với các directive chính xác.
+                            Thay vì chỉnh sửa trực tiếp file cấu hình mặc định
+                            trong
+                            <b>/etc/apache2/sites-available/000-default.conf</b>
+                            thì bạn có thể tạo một file mới cho web bạn trong
+                            <b
+                                >/etc/apache2/sites-available/tênbạnmuốnđặt.conf</b
+                            >
+                            bằng cách lệnh:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo nano /etc/apache2/sites-available/tênnbạnmuốnđặt.conf</code></pre>
+                        </div>
+                        <p>Sau đó paste đoạn code dưới đây:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">&lt;VirtualHost *:80&gt;     
+    ServerAdmin webmaster@localhost     
+    ServerName t&ecirc;tênnbạnmuốnđặt.com     
+    DocumentRoot /var/www/thư mụcchưawebcủabạn     
+&lt;/VirtualHost&gt;</code></pre>
+                        </div>
+                        <p>
+                            Lưu và đóng lại file sau khi hoàn tất bằng
+                            <b>Ctrl+X -&gt Y -&gt Enter</b>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="subject">Đưa trang web vào hoạt động</p>
+                        <p>
+                            Bây giờ bạn có thể cho trang hoạt động bằng bằng
+                            công cụ <b>a2ensite</b>:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                    <pre>
+<code class="language-shell">sudo a2ensite tênnbạnmuốnđặt.conf</code></pre>
+                        </div>
+                        <p>Và hãy tắt trang web mặc định của nó</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                    <pre>
+<code class="language-shell">sudo a2dissite 000-default.conf</code></pre>
+                        </div>
+                        <p>
+                            Sau đó bạn có thể kiểm tra lỗi xem mình có cấu hình
+                            đúng hay chưa bằng lệnh:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                    <pre>
+<code class="language-shell">sudo apache2ctl configtest</code></pre>
+                        </div>
+                        <p>
+                            Nếu output là <b>Syntax OK</b> thì bạn đã thành công
+                        </p>
+                        <p>
+                            Cuối cùng là restart lại Apache để áp dụng các thay
+                            đổi:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                    <pre>
+<code class="language-shell">sudo systemctl restart apache2</code></pre>
+                        </div>
+                    </li>
+                </ol>
+                <p>
+                    Bây giờ thì Apache đã bắt đầu cung cấp nội dung cho tên miền
+                    của bạn. Bạn có thể vào trang
+                    <b><span class="host">http://tênnbạnmuốnđặt</span></b>
+                    để kiểm tra.
+                </p>
             </div>
         </main>
         <footer>
