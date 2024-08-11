@@ -94,16 +94,21 @@
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="assets/fonts/Aerospace.css">
-        <link rel="stylesheet" href="assets/fonts/Vergilia.css">
-
+        <link rel="stylesheet" href="assets/fonts/Aerospace.css" />
+        <link rel="stylesheet" href="assets/fonts/Vergilia.css" />
 
         <!-- Reset CSS -->
         <link rel="stylesheet" href="assets/css/reset.css" />
 
         <!-- Styles -->
         <link rel="stylesheet" href="assets/css/main.css" />
-        <link rel="stylesheet" href="assets/css/GioiThieu.css" />
+        <link rel="stylesheet" href="assets/css/HuongDan.css" />
+
+        <!-- Embed JS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-okaidia.min.css"
+        />
 
         <title>Hướng dẫn Apache</title>
     </head>
@@ -129,7 +134,123 @@
             </div>
         </header>
         <main>
+            <aside class="sidebar">
+                <p class="desc">Nội dung</p>
+                <ul class="list">
+                    <li>
+                        <a href="#web-server">Web Server</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#web-server-la-gi">Web Server là gì</a>
+                            </li>
+                            <li>
+                                <a href="#web-server-hoat-dong"
+                                    >Web Server hoạt động như thế nào</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Apache">Apache</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#history-dac-diem"
+                                    >Lịch sử và đặc điểm của Apache</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#uu-diem-va-nhuoc-diem"
+                                    >Ưu điểm và nhược điểm của Apache</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#apache-hoat-dong"
+                                    >Cách Apache hoạt động</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
             <div class="content">
+                <h1 class="title">Hướng dẫn</h1>
+                <ul class="list content-list">
+                    <li>
+                        <a href="#web-server">Hướng dẫn cơ bản</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#web-server-la-gi">Cài đặt Apache</a>
+                            </li>
+                            <li>
+                                <a href="#web-server-hoat-dong"
+                                    >Cấu hình cơ bản</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#Apache">Cài DNS</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#history-dac-diem">Tải Bind9</a>
+                            </li>
+                            <li>
+                                <a href="#uu-diem-va-nhuoc-diem"
+                                    >Cấu hình DNS</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 class="sub-title">Hướng dẫn cơ bản</h2>
+                <h3 class="content-title">Cài đặt Apache</h3>
+                <p>
+                    Để cài đặt trên Linux bạn cần terminal lên bằng cách nhấn
+                    shortcut trên màn hình hoặc <b>Ctrl+Alt+T</b>. Dưới đây là
+                    các bước để cài được trên Ubuntu 1 bản phân phối phổ biến
+                    của Linux.
+                </p>
+                <p><b>Yêu Cầu Hệ Thống:</b></p>
+                <ol class="steps">
+                    <li>
+                        Cập Nhật Hệ Thống
+                        <p>
+                            Trước khi cài tốt nhất nên cập nhật trước vì đôi khi
+                            có những gói tài nguyên mà bạn chưa cài hay chưa cập
+                            nhật.Mở terminal và chạy lệnh sau:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">
+                                    Copy
+                                </button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo apt update
+sudo apt upgrade</code></pre>
+                        </div>
+                    </li>
+                    <li>Cài Đặt Apache
+                        <p>Sau khi hệ thống được cập nhật, bạn có thể cài đặt Apache bằng lệnh sau:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">
+                                    Copy
+                                </button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo apt install apache2
+</code></pre>
+                        </div>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
             </div>
         </main>
         <footer>
@@ -137,30 +258,60 @@
                 <div class="row">
                     <p class="Logo">HEHEBOIZ</p>
                     <div>
-                        <p class="contact">Người làm web và nội dung: </p>
+                        <p class="contact">Người làm web và nội dung:</p>
                         <div class="social">
-                            <a class="social-link" href="https://www.facebook.com/profile.php?id=100004177187020"><img src="assets/img/facebook.svg" alt="facebook" /></a>
-                            <a class="social-link" href="https://github.com/Hehe-Boiz"><img src="assets/img/icons8-github.svg" alt="github" /></a>
-                            <a class="social-link" href="https://www.instagram.com/minh_nhut155/"><img src="assets/img/instagram.svg" alt="ins" /></a>
+                            <a
+                                class="social-link"
+                                href="https://www.facebook.com/profile.php?id=100004177187020"
+                                ><img
+                                    src="assets/img/facebook.svg"
+                                    alt="facebook"
+                            /></a>
+                            <a
+                                class="social-link"
+                                href="https://github.com/Hehe-Boiz"
+                                ><img
+                                    src="assets/img/icons8-github.svg"
+                                    alt="github"
+                            /></a>
+                            <a
+                                class="social-link"
+                                href="https://www.instagram.com/minh_nhut155/"
+                                ><img src="assets/img/instagram.svg" alt="ins"
+                            /></a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <p class="Logo">BATAN</p>
-                    <div >
-                        <p class="contact">Người thực hiện nội dung: </p>
+                    <div>
+                        <p class="contact">Người thực hiện nội dung:</p>
                         <div class="social">
-                            <a class="social-link" href="https://www.facebook.com/profile.php?id=100005231869007"><img src="assets/img/facebook.svg" alt="facebook" /></a>
-                            <a class="social-link" href="https://github.com/BaTannnn"><img src="assets/img/icons8-github.svg" alt="github" /></a>
-                            <a class="social-link" href=""><img src="assets/img/instagram.svg" alt="ins" /></a>
+                            <a
+                                class="social-link"
+                                href="https://www.facebook.com/profile.php?id=100005231869007"
+                                ><img
+                                    src="assets/img/facebook.svg"
+                                    alt="facebook"
+                            /></a>
+                            <a
+                                class="social-link"
+                                href="https://github.com/BaTannnn"
+                                ><img
+                                    src="assets/img/icons8-github.svg"
+                                    alt="github"
+                            /></a>
                         </div>
                     </div>
                 </div>
                 <p class="banquyen">
-                    <strong> Nội dung được thực hiện bởi:</strong> Minh Nhựt
-                    và Bá Tân ©
+                    <strong> Nội dung được thực hiện bởi:</strong> Minh Nhựt và
+                    Bá Tân ©
                 </p>
             </div>
         </footer>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
     </body>
 </html>

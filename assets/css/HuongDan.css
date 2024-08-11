@@ -1,0 +1,10 @@
+main .steps > li::before {
+    position: absolute;
+    left: -11%;
+    content: "Bước " counter(item) ":";
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+main .steps {
+    padding-left: 60px;
+}
