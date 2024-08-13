@@ -24,3 +24,6 @@ main .Active-webserver img{
     width: 70%;
 }
 
+.host {
+    text-decoration: underline;
+}

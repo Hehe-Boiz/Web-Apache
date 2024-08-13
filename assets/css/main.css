@@ -14,6 +14,13 @@ html {
     scroll-behavior: smooth;
 }
 
+@media print {
+    body {
+        print-color-adjust: exact !important;
+        -webkit-print-color-adjust: exact !important;
+    }
+}
+
 .content {
     /* nếu bình thường mà độ rộng lớn hơn 1110px thì hiện bth */
     width: 1110px;
@@ -475,12 +482,12 @@ code {
 }
 
 .code-block ::-webkit-scrollbar-thumb {
-    background-color: #4a4e54;  /* Màu sắc thanh cuộn */
+    background-color: #4a4e54; /* Màu sắc thanh cuộn */
     border-radius: 4px;
 }
 
 .code-block ::-webkit-scrollbar-track {
-    background-color: #282c34; 
+    background-color: #282c34;
 }
 .code-block {
     scrollbar-width: thin;

@@ -155,10 +155,10 @@
                         <a href="#Apache">Cài DNS</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="#history-dac-diem">Tải Bind9</a>
+                                <a href="#cai-bind9">Tải Bind9</a>
                             </li>
                             <li>
-                                <a href="#uu-diem-va-nhuoc-diem"
+                                <a href="#cau-hinh-dns"
                                     >Cấu hình DNS</a
                                 >
                             </li>
@@ -187,10 +187,10 @@
                         <a href="#Apache">Cài DNS</a>
                         <ul class="sub-list">
                             <li>
-                                <a href="#history-dac-diem">Tải Bind9</a>
+                                <a href="#cai-bind9">Tải Bind9</a>
                             </li>
                             <li>
-                                <a href="#uu-diem-va-nhuoc-diem"
+                                <a href="#cau-hinh-dns"
                                     >Cấu hình DNS</a
                                 >
                             </li>
@@ -548,7 +548,7 @@ Rules updated (v6)</code></pre>
                                 <span class="language">bash</span>
                                 <button class="copy-button">Copy</button>
                             </div>
-                    <pre>
+                            <pre>
 <code class="language-shell">sudo a2ensite tênnbạnmuốnđặt.conf</code></pre>
                         </div>
                         <p>Và hãy tắt trang web mặc định của nó</p>
@@ -557,7 +557,7 @@ Rules updated (v6)</code></pre>
                                 <span class="language">bash</span>
                                 <button class="copy-button">Copy</button>
                             </div>
-                    <pre>
+                            <pre>
 <code class="language-shell">sudo a2dissite 000-default.conf</code></pre>
                         </div>
                         <p>
@@ -569,7 +569,7 @@ Rules updated (v6)</code></pre>
                                 <span class="language">bash</span>
                                 <button class="copy-button">Copy</button>
                             </div>
-                    <pre>
+                            <pre>
 <code class="language-shell">sudo apache2ctl configtest</code></pre>
                         </div>
                         <p>
@@ -584,7 +584,7 @@ Rules updated (v6)</code></pre>
                                 <span class="language">bash</span>
                                 <button class="copy-button">Copy</button>
                             </div>
-                    <pre>
+                            <pre>
 <code class="language-shell">sudo systemctl restart apache2</code></pre>
                         </div>
                     </li>
@@ -595,6 +595,188 @@ Rules updated (v6)</code></pre>
                     <b><span class="host">http://tênnbạnmuốnđặt</span></b>
                     để kiểm tra.
                 </p>
+                <h2 class="sub-title">Cài DNS</h2>
+                <h3 id="cai-bind9" class="content-title">Cài Bind9</h3>
+                <ol class="steps">
+                    <li>
+                        <p class="subject">Cập nhật hệ thống:</p>
+                        <p>
+                            Nếu mọi người đã cập nhật hệ thống ở trên kia rồi
+                            thì có thể bỏ qua bước này
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo apt update
+sudo apt upgrade</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Cài đặt gói Bind9</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo apt install bind9</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Kiểm tra trạng thái của bind9</p>
+                        <p>
+                            Sau khi cài đặt xong để biết có đang chạy hay chưa
+                            thì mọi người có thể gõ:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo systemctl status Bind9</code></pre>
+                        </div>
+                        <p>Nếu thành công nó sẽ hiện ra kết quả như sau:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">named.service - BIND Domain Name Server
+    Loaded: loaded (/usr/lib/systemd/system/named.service; enabled; preset: en&gt;
+    Active: active (running) since Wed 2024-08-14 00:03:50 +07; 3min 27s ago
+      Docs: man:named(8)
+  Main PID: 1082 (named)
+    Status: &quot;running&quot;
+     Tasks: 14 (limit: 3489)
+    Memory: 12.1M (peak: 13.1M)
+       CPU: 260ms
+    CGroup: /system.slice/named.service
+            └─1082 /usr/sbin/named -f -u bind</code></pre>
+                        </div>
+                        <p>
+                            Ngược lại nếu nó vẫn rông hiện running thì bạn hãy
+                            chạy lệnh này:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo systemctl start bind9</code></pre>
+                        </div>
+                    </li>
+                </ol>
+                <p>
+                    Vậy là các bạn đã hoàn thành xong các bước cài đặt hãy đi
+                    tới bước tiếp theo.
+                </p>
+                <h3 id="cau-hinh-dns" class="content-title">Cấu hình DNS</h3>
+                <ol class="steps">
+                    <li>
+                        <p class="subject">Cấu hình tệp Local</p>
+                        <p>
+                            Để cấu hình được bạn cần vào file
+                            <b><i>`named.conf.local`</i></b>
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo nano /etc/bind/named.conf.local</code></pre>
+                        </div>
+                        <p>
+                            Ngoại trừ một vài comments, tệp này sẽ trống. Ở đây
+                            bạn sẽ chỉ định các forward zones và reverse zones
+                            của mình. Các DNS zone chỉ định phạm vi cụ thể để dễ
+                            quản lí và xác định các bản ghi DNS.Vì tất cả các
+                            tên miền ví dụ trong hướng dẫn này đều nằm trong
+                            phân vùng con <span class="host">web.com</span>, nên
+                            bạn sẽ sử dụng nó để làm forward zone. Ở đây địa chỉ
+                            IP ví dụ sẽ là: 192.168.30.10 thì bạn nên viết ngược
+                            lại ở reverse.
+                        </p>
+                        <p>
+                            Thêm forward zone và reverse zone với các dòng sau,
+                            hãy nhớ thay thế tên zone thành của bạn như sau:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">zone &quot;web.com&quot; {
+    type master;
+    file &quot;/etc/bind/db.web.com&quot;;
+};
+zone &quot;30.168.192.in-addr.arpa&quot; {
+    type master;
+    file &quot;/etc/bind/db.reverse&quot;;
+};</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Khởi tạo forward zone file</p>
+                        <p>
+                            Forward zone file là nơi bạn xác định các bản ghi
+                            DNS để tra cứu DNS chuyển tiếp. Tức là, khi DNS nhận
+                            được một truy vấn tên, ví dụ như
+                            host1.nyc3.example.com, nó sẽ tìm kiếm trong forward
+                            zone file để phản hồi địa chỉ IP riêng tương ứng của
+                            host1.
+                        </p>
+                        <p>
+                            Bạn sẽ dựa trên forward zone file tại mẫu <b><i>`db.local`</i></b>.
+                            Sao chép nó đến vị trí đúng bằng các lệnh sau:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo cp /etc/bind/db.local /etc/bind/db.web</code></pre>
+                        </div>
+                        <p>Tiếp đến, hãy chỉnh sửa forward zone file với lệnh:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo nano /etc/bind/db.web</code></pre>
+                        </div>
+                        <p>Hãy sửa theo cấu hình dưới đây: </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">$TTL	604800
+    @	IN	SOA	web.com. web@admin. (
+                      2		; Serial
+                 604800		; Refresh
+                  86400		; Retry
+                2419200		; Expire
+                 604800 )	; Negative Cache TTL
+    ;
+    @	IN	NS	web.com.
+    @	IN	A	192.168.30.10</code></pre>
+                        </div>
+                    </li>
+                    <li><p>Cấu hình reverse zone file </p>
+
+                    </li>
+                </ol>
             </div>
         </main>
         <footer>
