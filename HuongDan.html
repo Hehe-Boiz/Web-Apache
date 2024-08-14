@@ -158,9 +158,7 @@
                                 <a href="#cai-bind9">Tải Bind9</a>
                             </li>
                             <li>
-                                <a href="#cau-hinh-dns"
-                                    >Cấu hình DNS</a
-                                >
+                                <a href="#cau-hinh-dns">Cấu hình DNS</a>
                             </li>
                         </ul>
                     </li>
@@ -190,9 +188,7 @@
                                 <a href="#cai-bind9">Tải Bind9</a>
                             </li>
                             <li>
-                                <a href="#cau-hinh-dns"
-                                    >Cấu hình DNS</a
-                                >
+                                <a href="#cau-hinh-dns">Cấu hình DNS</a>
                             </li>
                         </ul>
                     </li>
@@ -637,7 +633,7 @@ sudo apt upgrade</code></pre>
                                 <button class="copy-button">Copy</button>
                             </div>
                             <pre>
-<code class="language-shell">sudo systemctl status Bind9</code></pre>
+<code class="language-shell">sudo systemctl status bind9</code></pre>
                         </div>
                         <p>Nếu thành công nó sẽ hiện ra kết quả như sau:</p>
                         <div class="code-block">
@@ -678,6 +674,33 @@ sudo apt upgrade</code></pre>
                 </p>
                 <h3 id="cau-hinh-dns" class="content-title">Cấu hình DNS</h3>
                 <ol class="steps">
+                    <li>
+                        <p class="subject">Cấu hình tệp Options</p>
+                        <p>Để cấu hình tệp này bạn hãy dùng lệnh:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo nano /etc/bind/named.conf.options</code></pre>
+                        </div>
+                        <p>
+                            Khi đó bạn hãy thêm đoạn lệnh sau ở dưới dòng
+                            diretory:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">forwarders {
+    8.8.8.8;
+   8.8.4.4;
+};</code></pre>
+                        </div>
+                    </li>
                     <li>
                         <p class="subject">Cấu hình tệp Local</p>
                         <p>
@@ -734,8 +757,9 @@ zone &quot;30.168.192.in-addr.arpa&quot; {
                             host1.
                         </p>
                         <p>
-                            Bạn sẽ dựa trên forward zone file tại mẫu <b><i>`db.local`</i></b>.
-                            Sao chép nó đến vị trí đúng bằng các lệnh sau:
+                            Bạn sẽ dựa trên forward zone file tại mẫu
+                            <b><i>`db.local`</i></b
+                            >. Sao chép nó đến vị trí đúng bằng các lệnh sau:
                         </p>
                         <div class="code-block">
                             <div class="code-header">
@@ -745,7 +769,9 @@ zone &quot;30.168.192.in-addr.arpa&quot; {
                             <pre>
 <code class="language-shell">sudo cp /etc/bind/db.local /etc/bind/db.web</code></pre>
                         </div>
-                        <p>Tiếp đến, hãy chỉnh sửa forward zone file với lệnh:</p>
+                        <p>
+                            Tiếp đến, hãy chỉnh sửa forward zone file với lệnh:
+                        </p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="language">bash</span>
@@ -754,7 +780,7 @@ zone &quot;30.168.192.in-addr.arpa&quot; {
                             <pre>
 <code class="language-shell">sudo nano /etc/bind/db.web</code></pre>
                         </div>
-                        <p>Hãy sửa theo cấu hình dưới đây: </p>
+                        <p>Hãy sửa theo cấu hình dưới đây:</p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="language">bash</span>
@@ -773,10 +799,101 @@ zone &quot;30.168.192.in-addr.arpa&quot; {
     @	IN	A	192.168.30.10</code></pre>
                         </div>
                     </li>
-                    <li><p>Cấu hình reverse zone file </p>
-
+                    <li>
+                        <p class="subject">Cấu hình reverse zone file</p>
+                        <p>
+                            Reverse zone files là nơi bạn xác định các bản ghi
+                            DNS PTR để tra cứu các DNS ngược. Đó là, khi DNS
+                            nhận được một truy vấn bằng địa chỉ IP, ví dụ như
+                            192.168.30.10, nó sẽ tìm kiếm trong các reverse zone
+                            files để phản hồi FQDN tương ứng.
+                        </p>
+                        <p>
+                            Bạn có thể cấu hình trực tiếp trong file db.reverse
+                            bằng lệnh sau:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo nano /etc/bind/db.reverse</code></pre>
+                        </div>
+                        <p>Tiếp đó cấu hình như sau:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">$TTL	604800
+    @	IN	SOA	web.com. web@admin.local. (
+                      1		; Serial
+                 604800		; Refresh
+                  86400		; Retry
+                2419200		; Expire
+                 604800 )	; Negative Cache TTL
+    ;
+    @	IN	NS	web.com.
+    10	IN	PTR	web.com.</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Kiểm tra cú pháp</p>
+                        <p>
+                            Sau khi thực hiện xong các bước các bạn có thể kiểm
+                            tra lại cú pháp cấu hình của mình có đúng hay không
+                            bằng lệnh:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo named-checkconf</code></pre>
+                        </div>
+                        <p>
+                            Nếu không có lỗi gì thì nó sẽ không thông báo lỗi gì
+                            cả.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="subject">Khởi động lại Bind9</p>
+                        <p>Để khởi động lại BIND, thực hiện lệnh sau:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo systemctl restart bind9</code></pre>
+                        </div>
+                        <p>Nếu bạn đã cấu hình tường lửa UFW hãy mở truy cập đến BIND bằng cách nhập lệnh:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo ufw allow Bind9</code></pre>
+                        </div>
                     </li>
                 </ol>
+                <p>Thế là đã hoàn thành Server DNS chính của bạn đã sẵn sàng để phản hồi lại truy vấn DNS.</p>
+                <div class="wrap">
+                    <p class="excerpt">
+                        <strong>Bài viết và web tham khảo :</strong>
+                    </p>
+                    <ul class="links">
+                        <li>https://vietnix.vn/cau-hinh-bind-lam-server-dns-noi-bo-tren-ubuntu-20-04/</li>
+                        <li>https://gemini.google.com/app</li>
+                        <li>https://chat.openai.com/</li>
+                        <li>https://claude.ai/new</li>
+                        <li>https://stackoverflow.com/</li>
+                    </ul>
+                </div>
             </div>
         </main>
         <footer>
