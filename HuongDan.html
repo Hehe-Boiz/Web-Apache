@@ -152,7 +152,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#Apache">Cài DNS</a>
+                        <a href="#dns">Cài DNS</a>
                         <ul class="sub-list">
                             <li>
                                 <a href="#cai-bind9">Tải Bind9</a>
@@ -162,9 +162,20 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#khac">Cấu hình một số chức năng khác</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#ht">Cấu hình .htaccess</a>
+                            </li>
+                            <li>
+                                <a href="#ssl">Cài SSL</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </aside>
-            <div class="content">
+            <div class="content" style="margin: 0 auto">
                 <h1 class="title">Hướng dẫn</h1>
                 <ul class="list content-list">
                     <li>
@@ -182,13 +193,24 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#Apache">Cài DNS</a>
+                        <a href="#dns">Cài DNS</a>
                         <ul class="sub-list">
                             <li>
                                 <a href="#cai-bind9">Tải Bind9</a>
                             </li>
                             <li>
                                 <a href="#cau-hinh-dns">Cấu hình DNS</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#khac">Cấu hình một số chức năng khác</a>
+                        <ul class="sub-list">
+                            <li>
+                                <a href="#ht">Cấu hình .htaccess</a>
+                            </li>
+                            <li>
+                                <a href="#ssl">Cài SSL</a>
                             </li>
                         </ul>
                     </li>
@@ -591,7 +613,7 @@ Rules updated (v6)</code></pre>
                     <b><span class="host">http://tênnbạnmuốnđặt</span></b>
                     để kiểm tra.
                 </p>
-                <h2 class="sub-title">Cài DNS</h2>
+                <h2 id="dns" class="sub-title">Cài DNS</h2>
                 <h3 id="cai-bind9" class="content-title">Cài Bind9</h3>
                 <ol class="steps">
                     <li>
@@ -870,7 +892,10 @@ zone &quot;30.168.192.in-addr.arpa&quot; {
                             <pre>
 <code class="language-shell">sudo systemctl restart bind9</code></pre>
                         </div>
-                        <p>Nếu bạn đã cấu hình tường lửa UFW hãy mở truy cập đến BIND bằng cách nhập lệnh:</p>
+                        <p>
+                            Nếu bạn đã cấu hình tường lửa UFW hãy mở truy cập
+                            đến BIND bằng cách nhập lệnh:
+                        </p>
                         <div class="code-block">
                             <div class="code-header">
                                 <span class="language">bash</span>
@@ -881,13 +906,175 @@ zone &quot;30.168.192.in-addr.arpa&quot; {
                         </div>
                     </li>
                 </ol>
-                <p>Thế là đã hoàn thành Server DNS chính của bạn đã sẵn sàng để phản hồi lại truy vấn DNS.</p>
+                <p>
+                    Thế là đã hoàn thành Server DNS chính của bạn đã sẵn sàng để
+                    phản hồi lại truy vấn DNS.
+                </p>
+                <h2 id="khac" class="sub-title">
+                    Cấu hình một số chức năng khác
+                </h2>
+                <h3 id="ht" class="content-title">Cấu hình .htaccess</h3>
+                <ol class="steps">
+                    <li>
+                        <p class="subject">Cấu hình file apache.conf</p>
+                        <p>Trước tiên bạn cần vào file với lệnh:</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo nano /etc/apache2/apache2.conf</code></pre>
+                        </div>
+                        <p>
+                            Thêm directory vào tệp cấu hình chính apache2.conf.
+                            Sau đó bật AllOverride All để cho phép tất cá các
+                            thay đổi .htaccess ghi lên cấu hình máy chủ
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">&lt;Directory /&gt;
+	Options FollowSymLinks
+	AllowOverride None
+	Require all denied
+&lt;/Directory&gt;
+
+&lt;Directory /usr/share&gt;
+	AllowOverride None
+	Require all granted
+&lt;/Directory&gt;
+
+&lt;Directory /var/www/&gt;
+	Options Indexes FollowSymLinks
+	AllowOverride None
+	Require all granted
+&lt;/Directory&gt;
+&lt;Directory /var/www/web&gt;
+	AllowOverride All
+&lt;/Directory&gt;</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Cấu hình trong Virtual host</p>
+                        <p>Thêm directory vào file cấu hình Virtual host</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell"> &lt;Directory /var/www/batan.com/website&gt;
+    AllowOverride All
+ &lt;/Directory&gt;</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Thêm AccessFileName</p>
+                        <p>
+                            Thêm AccessFileName .htaccess nếu chưa có hoặc đang
+                            comment
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">AccessFileName .htaccess</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Cấu hình trong thư mục</p>
+                        <p>Truy cập vào folder chưa website cần cấu hình</p>
+                        <p>
+                            Sau đó cấu hình .htaccess sau đó lưu lại bằng Ctrl+X
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">#Tùy biến trang lỗi 404
+ErrorDocument 404 /404/404.html
+
+#Chặn truy cập từ một số IP
+Order Deny,Allow
+Deny from 192.168.39.1</code></pre>
+                        </div>
+                    </li>
+                </ol>
+                <h3 id="ssl" class="content-title">Cấu hình SSL</h3>
+                <ol class="steps">
+                    <li>
+                        <p class="subject">Tải SSL</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo apt install openssl apache2</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Tạo key</p>
+                        <p>
+                            Tạo public key(certs/.crt)và private
+                            key(private/.key)
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo openssl req -newkey rsa:2048 -nodes -keyout /etc/ssl/private/batan.key -x509 -days 365 -out /etc/ssl/certs/batan.crt</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">
+                            Cấu hình ở tệp Vitrual Hosts cần thiết
+                        </p>
+                        <p>
+                            Thêm bật cấu hình SSL và đường dẫn vào các key ở tệp
+                            cấu hình Virtual Hosts cần thiết với đoạn lệnh:
+                        </p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell"> SSLEngine on
+ SSLCertificateFile /etc/ssl/certs/batan.crt
+ SSLCertificateKeyFile /etc/ssl/private/batan.key</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p class="subject">Bước cuối kích hoạt modun ssl</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="language">bash</span>
+                                <button class="copy-button">Copy</button>
+                            </div>
+                            <pre>
+<code class="language-shell">sudo a2enmod ssl</code></pre>
+                        </div>
+                    </li>
+                </ol>
                 <div class="wrap">
                     <p class="excerpt">
                         <strong>Bài viết và web tham khảo :</strong>
                     </p>
                     <ul class="links">
-                        <li>https://vietnix.vn/cau-hinh-bind-lam-server-dns-noi-bo-tren-ubuntu-20-04/</li>
+                        <li>
+                            https://vietnix.vn/cau-hinh-bind-lam-server-dns-noi-bo-tren-ubuntu-20-04/
+                        </li>
                         <li>https://gemini.google.com/app</li>
                         <li>https://chat.openai.com/</li>
                         <li>https://claude.ai/new</li>
